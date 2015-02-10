@@ -23,6 +23,6 @@ Partial Public Class MainPage
     Private Sub ContentFrame_NavigationFailed(ByVal sender As Object, ByVal e As NavigationFailedEventArgs) Handles ContentFrame.NavigationFailed
         e.Handled = True
         Dim errorWindow As ChildWindow = New ErrorWindow(e.Uri)
-        errorWindow.Show()
+        errorWindow.Show() 'aqui
     End Sub
 End Class
