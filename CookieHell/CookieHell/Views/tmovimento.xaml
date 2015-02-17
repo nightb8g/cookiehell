@@ -8,24 +8,28 @@
     IsTabStop="true"
     d:DesignHeight="300" d:DesignWidth="400" >
 	<UserControl.Resources>
-        <!--
-		<Storyboard x:Name="saltar">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="player">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="140"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="190"/>
+
+		<!--<Storyboard x:Name="saltar">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="image">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="80"/>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="player">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="60"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="110"/>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-100"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard> -->
 	</UserControl.Resources>
     <Canvas IsHitTestVisible="True" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400">
         <UserControl x:Name="player" >
             <UserControl.RenderTransform>
-                <CompositeTransform TranslateY="200"/>
+                <CompositeTransform x:Name="player_pontos"  TranslateY="200"/>
             </UserControl.RenderTransform>
-            <Image  Height="100" Width="100" Source="/CookieHell;component/img/Koala.jpg" RenderTransformOrigin="0,1"/>
+            <Image x:Name="image"  Height="100" Width="100" Source="/CookieHell;component/img/Koala.jpg" RenderTransformOrigin="0,1">
+            	<Image.RenderTransform>
+            		<CompositeTransform/>
+            	</Image.RenderTransform>
+            </Image>
         </UserControl>
 
     </Canvas>
