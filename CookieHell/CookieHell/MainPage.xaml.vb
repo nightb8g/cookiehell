@@ -28,11 +28,9 @@ Partial Public Class MainPage
 
     Private Sub player_KeyDown(sender As Object, e As KeyEventArgs)
         If (ContentFrame.CurrentSource.OriginalString.Contains("tmovimento")) Then
+
             CType(ContentFrame.Content, tmovimento).player_KeyDown(sender, e)
         End If
-    End Sub
-    Private Sub player_KeyUp(sender As Object, e As KeyEventArgs)
-
     End Sub
 
   

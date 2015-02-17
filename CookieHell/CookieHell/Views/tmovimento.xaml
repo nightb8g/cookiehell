@@ -7,8 +7,24 @@
     mc:Ignorable="d"
     IsTabStop="true"
     d:DesignHeight="300" d:DesignWidth="400" >
+	<UserControl.Resources>
+        <!--
+		<Storyboard x:Name="saltar">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="player">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="140"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="190"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="player">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="60"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="110"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard> -->
+	</UserControl.Resources>
     <Canvas IsHitTestVisible="True" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400">
-        <UserControl x:Name="player" RenderTransformOrigin="0,1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Canvas.Top="190" Canvas.Left="10" >
+        <UserControl x:Name="player" >
+            <UserControl.RenderTransform>
+                <CompositeTransform TranslateY="200"/>
+            </UserControl.RenderTransform>
             <Image  Height="100" Width="100" Source="/CookieHell;component/img/Koala.jpg" RenderTransformOrigin="0,1"/>
         </UserControl>
 

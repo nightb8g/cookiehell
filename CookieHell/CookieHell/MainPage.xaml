@@ -5,7 +5,7 @@
     xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
     xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480" KeyDown="player_KeyDown" KeyUp="player_KeyUp">
+    mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480" KeyDown="player_KeyDown">
 
   <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
 
@@ -46,8 +46,7 @@
                                      NavigateUri="/About" TargetName="ContentFrame" Content="about"/>
                     <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
 
-                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/tmovimento" TargetName="ContentFrame" Content="movimento"/>
+                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" NavigateUri="/tmovimento" TargetName="ContentFrame" Content="movimento"/>
 
                 </StackPanel>
       </Border>
