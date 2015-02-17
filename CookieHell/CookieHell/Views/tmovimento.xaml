@@ -6,16 +6,13 @@
     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:local="clr-namespace:CookieHell" x:Class="CookieHell.tmovimento"
     mc:Ignorable="d"
     IsTabStop="true"
-    d:DesignHeight="300" d:DesignWidth="400" KeyDown="UserControl_KeyDown">
+    d:DesignHeight="300" d:DesignWidth="400" >
     <Canvas IsHitTestVisible="True" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400">
-   
-        <Button x:Name="btnStart" Content="Start" Canvas.Left="315" Canvas.Top="268" Width="75" Click="Button_Click"/>
         <UserControl x:Name="player" RenderTransformOrigin="0,1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Canvas.Top="190" Canvas.Left="10" >
             <Image  Height="100" Width="100" Source="/CookieHell;component/img/Koala.jpg" RenderTransformOrigin="0,1"/>
         </UserControl>
-        <sdk:Label x:Name="lbl1" Height="28" Canvas.Left="50" Canvas.Top="152" Width="120"/>
-   
-        </Canvas>
+
+    </Canvas>
 
 
 </UserControl>

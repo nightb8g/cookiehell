@@ -7,12 +7,6 @@
     End Sub
 
 
-    Private Sub Button_Click(sender As Object, e As RoutedEventArgs) Handles btnStart.Click
-
-        andarDireita(player)
-
-    End Sub
-
     Private Sub andarDireita(img As UserControl)
       
         img.Margin = New Thickness(img.Margin.Left + 100, img.Margin.Top, img.Margin.Right, img.Margin.Bottom)
@@ -21,20 +15,12 @@
         img.Margin = New Thickness(img.Margin.Left - 100, img.Margin.Top, img.Margin.Right, img.Margin.Bottom)
     End Sub
 
-    Private Sub andarCima(img As Object)
-        img.Margin = New Thickness(img.Margin.Left, img.Margin.Top - 100, img.Margin.Right, img.Margin.Bottom)
+    Private Sub saltar(img As Object)
+
     End Sub
  
 
-    Private Sub Canvas_KeyUp(sender As Object, e As KeyEventArgs)
-        If (e.Key = Key.Up) Then
-
-        End If
-    End Sub
-
-
- 
-    Private Sub player_KeyDown(sender As Object, e As KeyEventArgs) Handles player.KeyDown
+    Public Sub player_KeyDown(sender As Object, e As KeyEventArgs)
         If (e.Key = Key.Right) Then
             andarDireita(player)
         ElseIf (e.Key = Key.Left) Then
@@ -44,8 +30,4 @@
         End If
     End Sub
 
-    Private Sub UserControl_KeyDown(sender As Object, e As KeyEventArgs)
-        player_KeyDown(sender, e)
-
-    End Sub
 End Class
