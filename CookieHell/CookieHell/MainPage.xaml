@@ -44,8 +44,12 @@
 
           <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
                                      NavigateUri="/About" TargetName="ContentFrame" Content="about"/>
+                    <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
 
-        </StackPanel>
+                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/tmovimento" TargetName="ContentFrame" Content="movimento"/>
+
+                </StackPanel>
       </Border>
 
     </Grid>
