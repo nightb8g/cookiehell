@@ -43,4 +43,9 @@
 
         End If
     End Sub
+
+    Private Sub UserControl_KeyDown(sender As Object, e As KeyEventArgs)
+        player_KeyDown(sender, e)
+
+    End Sub
 End Class

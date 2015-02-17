@@ -6,7 +6,7 @@
     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:local="clr-namespace:CookieHell" x:Class="CookieHell.tmovimento"
     mc:Ignorable="d"
     IsTabStop="true"
-    d:DesignHeight="300" d:DesignWidth="400">
+    d:DesignHeight="300" d:DesignWidth="400" KeyDown="UserControl_KeyDown">
     <Canvas IsHitTestVisible="True" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400">
    
         <Button x:Name="btnStart" Content="Start" Canvas.Left="315" Canvas.Top="268" Width="75" Click="Button_Click"/>

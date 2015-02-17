@@ -25,4 +25,15 @@ Partial Public Class MainPage
         Dim errorWindow As ChildWindow = New ErrorWindow(e.Uri)
         errorWindow.Show() 'aqui
     End Sub
+
+    Private Sub player_KeyDown(sender As Object, e As KeyEventArgs)
+        If (ContentFrame.CurrentSource.OriginalString.Contains("tmovimento")) Then
+
+        End If
+    End Sub
+    Private Sub player_KeyUp(sender As Object, e As KeyEventArgs)
+
+    End Sub
+
+  
 End Class
