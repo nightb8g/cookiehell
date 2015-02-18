@@ -7,9 +7,9 @@
     mc:Ignorable="d"
     IsTabStop="true"
     d:DesignHeight="300" d:DesignWidth="400" >
-	<UserControl.Resources>
+    <UserControl.Resources>
 
-		<!--<Storyboard x:Name="saltar">
+        <!--<Storyboard x:Name="saltar">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="image">
 				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="50"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="80"/>
@@ -19,16 +19,17 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard> -->
-	</UserControl.Resources>
-    <Canvas IsHitTestVisible="True" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400">
-        <UserControl x:Name="player" >
+    </UserControl.Resources>
+    <Canvas IsHitTestVisible="True" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+        <UserControl x:Name="player" RenderTransformOrigin="0,1" >
             <UserControl.RenderTransform>
-                <CompositeTransform x:Name="player_pontos"  TranslateY="200"/>
+                <CompositeTransform x:Name="player_pontos" TranslateY="200"/>
             </UserControl.RenderTransform>
             <Image x:Name="image"  Height="100" Width="100" Source="/CookieHell;component/img/Koala.jpg" RenderTransformOrigin="0,1">
-            	<Image.RenderTransform>
-            		<CompositeTransform/>
-            	</Image.RenderTransform>
+                <Image.RenderTransform>
+                    <CompositeTransform/>
+                </Image.RenderTransform>
             </Image>
         </UserControl>
 

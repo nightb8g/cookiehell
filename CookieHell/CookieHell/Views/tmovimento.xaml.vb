@@ -54,21 +54,40 @@
 
 
     Private Sub saltarlado()
-        Dim st As New Storyboard
-        storyboard_saltar(st)
-        st.Begin()
+        If (player_pontos.TranslateY = 200 And (direcao * 130) + player_pontos.TranslateX >= 0 And (direcao * 130) + player_pontos.TranslateX <= 600) Then
+            Dim st As New Storyboard
+            storyboard_saltar(st)
+            st.Begin()
+        End If
+
+    End Sub
+
+    Private Sub direita()
+
+        Dim temp As Double = player_pontos.TranslateX + 10
+        If (temp >= 0 And temp <= 600) Then
+            player_pontos.TranslateX = temp
+        End If
+        direcao = 1
 
     End Sub
 
 
+    Private Sub esquerda()
+        Dim temp As Double = player_pontos.TranslateX - 10
+        If (temp >= 0 And temp <= 600) Then
+            player_pontos.TranslateX = temp
+        End If
+        direcao = -1
+
+    End Sub
+
     Public Sub player_KeyDown(sender As Object, e As KeyEventArgs)
 
         If (e.Key = Key.Right) Then
-            player_pontos.TranslateX = player_pontos.TranslateX + 10
-            direcao = 1 'direira
+            direita()
         ElseIf (e.Key = Key.Left) Then
-            player_pontos.TranslateX = player_pontos.TranslateX - 10
-            direcao = -1 'esquerda
+            esquerda()
         ElseIf (e.Key = Key.Up) Then
             saltarlado()
         End If
