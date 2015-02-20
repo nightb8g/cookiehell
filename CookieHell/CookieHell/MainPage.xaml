@@ -13,7 +13,7 @@
     <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,42,0,0">
           
             <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
-                              Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                              Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed" Height="597" VerticalAlignment="Top">
         <navigation:Frame.UriMapper>
           <uriMapper:UriMapper>
             <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>

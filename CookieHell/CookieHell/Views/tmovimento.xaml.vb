@@ -48,14 +48,14 @@
         Storyboard.SetTargetProperty(daTop, New PropertyPath(CompositeTransform.TranslateYProperty))
         st.Children.Add(daTop)
 
-        st.SpeedRatio = 10
+        st.SpeedRatio = 20
         AddHandler st.Completed, AddressOf stop_saltar
 
     End Sub
 
 
     Private Sub saltarlado()
-        If (player_pontos.TranslateY = 0 And (direcao * 130) + player_pontos.TranslateX >= 0 And (direcao * 130) + player_pontos.TranslateX <= 600) Then
+        If (player_pontos.TranslateY = 0 And (direcao * 130) + player_pontos.TranslateX >= 0 And (direcao * 130) + player_pontos.TranslateX <= 1024) Then
             Dim st As New Storyboard
             storyboard_saltar(st, direcao)
             st.Begin()
@@ -64,25 +64,31 @@
     End Sub
     Private Sub stop_saltar(sender As Object, e As EventArgs)
         'CType(sender, Storyboard).Stop()
+        sender = Nothing
     End Sub
     
     Private Sub direita()
 
         Dim temp As Double = player_pontos.TranslateX + 10
-        If (temp >= 0 And temp <= 600) Then
+        If (temp >= 0 And temp <= 1024) Then
             player_pontos.TranslateX = temp
         End If
         direcao = 1
+        player_pontos.ScaleX = direcao
+
+
+
 
     End Sub
 
 
     Private Sub esquerda()
         Dim temp As Double = player_pontos.TranslateX - 10
-        If (temp >= 0 And temp <= 600) Then
+        If (temp >= 0 And temp <= 1024) Then
             player_pontos.TranslateX = temp
         End If
         direcao = -1
+        player_pontos.ScaleX = direcao
 
     End Sub
 
