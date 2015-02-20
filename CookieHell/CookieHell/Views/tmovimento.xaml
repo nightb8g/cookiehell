@@ -6,7 +6,7 @@
     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:local="clr-namespace:CookieHell" x:Class="CookieHell.tmovimento"
     mc:Ignorable="d"
     IsTabStop="true"
-    d:DesignHeight="300" d:DesignWidth="400" >
+    d:DesignHeight="300" RenderTransformOrigin="0.5,0.5" BorderThickness="10" Width="1024" Height="768" >
     <UserControl.Resources>
 
         <!--<Storyboard x:Name="saltar">
@@ -19,16 +19,22 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard> -->
+        <!--
+         <Image.RenderTransform>
+                    <CompositeTransform x:Name="player_pontos"/>
+         </Image.RenderTransform>      
+        -->
+
     </UserControl.Resources>
-    <Canvas IsHitTestVisible="True" HorizontalAlignment="Left" VerticalAlignment="Top">
+    <UserControl.RenderTransform>
+        <CompositeTransform ScaleY="-1"/>
+    </UserControl.RenderTransform>
+    <Canvas IsHitTestVisible="True" Height="600" VerticalAlignment="Bottom" RenderTransformOrigin="0,1" MaxWidth="800" MaxHeight="600" HorizontalAlignment="Right" Width="800">
 
         <UserControl x:Name="player" RenderTransformOrigin="0,1" >
-            <UserControl.RenderTransform>
-                <CompositeTransform x:Name="player_pontos" TranslateY="200"/>
-            </UserControl.RenderTransform>
-            <Image x:Name="image"  Height="100" Width="100" Source="/CookieHell;component/img/Koala.jpg" RenderTransformOrigin="0,1">
+            <Image x:Name="image"  Height="100" Width="100" Source="/CookieHell;component/img/c_cookie.png" RenderTransformOrigin="0,1">
                 <Image.RenderTransform>
-                    <CompositeTransform/>
+                    <CompositeTransform x:Name="player_pontos"/>
                 </Image.RenderTransform>
             </Image>
         </UserControl>

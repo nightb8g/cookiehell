@@ -6,7 +6,7 @@
         InitializeComponent()
     End Sub
 
-    Private Sub storyboard_saltar(st As Storyboard)
+    Private Sub storyboard_saltar(ByRef st As Storyboard, ByVal direcao As Integer)
         ' <!--<Storyboard x:Name="saltar">
         '	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="image">
         '		<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="50"/>
@@ -22,7 +22,6 @@
         Dim daLeft As New DoubleAnimationUsingKeyFrames
         Dim keyframemidle As New EasingDoubleKeyFrame
         Dim keyframefinal As New EasingDoubleKeyFrame
-
 
         'Left
         keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
@@ -40,28 +39,33 @@
         keyframefinal = New EasingDoubleKeyFrame
         keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
         keyframefinal.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 10))
-        keyframemidle.Value = player_pontos.TranslateY - 100
+        keyframemidle.Value = player_pontos.TranslateY + 100
         'keyframefinal.Value = keyframemidle.Value + 100
-        keyframefinal.Value = 200
+        keyframefinal.Value = 0
         daTop.KeyFrames.Add(keyframemidle)
         daTop.KeyFrames.Add(keyframefinal)
         Storyboard.SetTarget(daTop, player_pontos)
         Storyboard.SetTargetProperty(daTop, New PropertyPath(CompositeTransform.TranslateYProperty))
-
         st.Children.Add(daTop)
+
         st.SpeedRatio = 10
+        AddHandler st.Completed, AddressOf stop_saltar
+
     End Sub
 
 
     Private Sub saltarlado()
-        If (player_pontos.TranslateY = 200 And (direcao * 130) + player_pontos.TranslateX >= 0 And (direcao * 130) + player_pontos.TranslateX <= 600) Then
+        If (player_pontos.TranslateY = 0 And (direcao * 130) + player_pontos.TranslateX >= 0 And (direcao * 130) + player_pontos.TranslateX <= 600) Then
             Dim st As New Storyboard
-            storyboard_saltar(st)
+            storyboard_saltar(st, direcao)
             st.Begin()
         End If
 
     End Sub
-
+    Private Sub stop_saltar(sender As Object, e As EventArgs)
+        'CType(sender, Storyboard).Stop()
+    End Sub
+    
     Private Sub direita()
 
         Dim temp As Double = player_pontos.TranslateX + 10
