@@ -7,7 +7,21 @@
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            d:DesignWidth="640" d:DesignHeight="480"
            Title="Game Page">
+	<navigation:Page.Resources>
+		<Storyboard x:Name="c_move"/>
+	</navigation:Page.Resources>
     <Grid x:Name="LayoutRoot">
+        <Canvas>
+            <Image x:Name="go1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Bottom" Width="100" Canvas.Left="149" Canvas.Top="37" Source="/CookieHell;component/img/c_go1.png"/>
+            <Image x:Name="go2" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Canvas.Left="254" Canvas.Top="37" Source="/CookieHell;component/img/c_go2.png"/>
+            <Image Height="100" Canvas.Left="44" Canvas.Top="37" Width="100" Source="/CookieHell;component/img/c_jump.png"/>
+            <Image x:Name="c_go1" Height="100" Canvas.Left="149" Canvas.Top="320" Width="100" Source="/CookieHell;component/img/c_go1.png"/>
+        </Canvas>
+        <Image x:Name="c_go2" Source="/CookieHell;component/img/c_go2.png" RenderTransformOrigin="0.5,0.5" Margin="149,319,0,0" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100">
+        	<Image.RenderTransform>
+        		<CompositeTransform/>
+        	</Image.RenderTransform>
+        </Image>
 
     </Grid>
 </navigation:Page>
