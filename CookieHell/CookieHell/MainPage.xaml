@@ -13,7 +13,7 @@
     <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,42,0,0">
           
             <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
-                              Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed" Height="597" VerticalAlignment="Top">
+                              Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed" VerticalAlignment="Top">
         <navigation:Frame.UriMapper>
           <uriMapper:UriMapper>
             <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
@@ -44,7 +44,7 @@
           <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
 
           <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/About" TargetName="ContentFrame" Content="about"/>
+                                     NavigateUri="/tmovimento2" TargetName="ContentFrame" Content="tmovimento2"/>
                     <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
 
                     <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" NavigateUri="/tmovimento" TargetName="ContentFrame" Content="movimento"/>
