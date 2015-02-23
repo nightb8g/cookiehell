@@ -8,8 +8,19 @@
            d:DesignWidth="640" d:DesignHeight="480"
            Title="tmovimento2 Page">
     <Grid x:Name="LayoutRoot">
-        <Viewbox>
-            <Image Source="/CookieHell;component/img/bgteste.jpg" Stretch="None" Width="800" />
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalAlignment="Bottom" VerticalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" >
+            <Image  x:Name="bg" Source="/CookieHell;component/img/bg_game_trial.png" Stretch="Fill" Height="480" Width="1600" RenderTransformOrigin="0.5,0.5" >
+                <Image.RenderTransform>
+                    <CompositeTransform TranslateX="1"/>
+                </Image.RenderTransform>
+
+            </Image>
+        </ScrollViewer>
+        <Viewbox x:Name="vb">
+            <Viewbox.RenderTransform>
+                <CompositeTransform/>
+
+            </Viewbox.RenderTransform>
         </Viewbox>
     </Grid>
 </navigation:Page>

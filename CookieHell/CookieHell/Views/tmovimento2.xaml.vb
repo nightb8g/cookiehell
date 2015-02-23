@@ -10,4 +10,22 @@
 
     End Sub
 
+    Public Sub player_KeyDown(sender As Object, e As KeyEventArgs)
+
+        If (e.Key = Key.Right) Then
+            direita()
+        ElseIf (e.Key = Key.Left) Then
+            esquerda()
+        End If
+    End Sub
+    Private Sub direita()
+
+        CType(bg.RenderTransform, CompositeTransform).TranslateX -= 10
+
+
+    End Sub
+    Private Sub esquerda()
+        CType(bg.RenderTransform, CompositeTransform).TranslateX += 10
+    End Sub
+
 End Class
