@@ -119,6 +119,9 @@
     <Compile Include="Views\ErrorWindow.xaml.vb">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Game.xaml.vb">
+      <DependentUpon>Game.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home.xaml.vb">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -134,6 +137,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Game.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\tmovimento.xaml">
       <SubType>Designer</SubType>
@@ -172,6 +179,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\obj.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\bg_game_trial.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
