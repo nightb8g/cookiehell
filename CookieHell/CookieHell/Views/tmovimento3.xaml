@@ -14,7 +14,7 @@
             </Image.RenderTransform>
         </Image>
         <Border BorderBrush="White" BorderThickness="40,30" Margin="0">
-            <Image HorizontalAlignment="Left" Height="100" Margin="204,250,0,0" VerticalAlignment="Top" Width="100" Source="/CookieHell;component/img/cookie.png"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="10,0,0,30" VerticalAlignment="Bottom" Width="51" Source="/CookieHell;component/img/c_go1.png"/>
         </Border>
 
     </Grid>
