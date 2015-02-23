@@ -26,6 +26,8 @@
         Dim temp As Double = bg_pontos.TranslateX + 10
         If (temp >= 0 And temp <= 1024) Then
             bg_pontos.TranslateX = temp
+        Else
+            player_pontos.TranslateX = 100
         End If
         direcao = 1
         bg_pontos.ScaleX = direcao
@@ -36,6 +38,7 @@
     End Sub
     Private Sub esquerda()
         Dim temp As Double = bg_pontos.TranslateX - 10
+        MessageBox.Show("1")
         If (temp >= 0 And temp <= 1024) Then
             bg_pontos.TranslateX = temp
         End If

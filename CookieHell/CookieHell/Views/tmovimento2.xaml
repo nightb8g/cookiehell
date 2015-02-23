@@ -8,14 +8,18 @@
            d:DesignWidth="640" d:DesignHeight="480"
            Title="tmovimento2 Page">
     <Grid x:Name="LayoutRoot">
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalAlignment="Bottom" VerticalScrollBarVisibility="Visible" BorderBrush="{x:Null}" >
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalAlignment="Bottom" VerticalScrollBarVisibility="Hidden" BorderBrush="{x:Null}" >
             <Grid Height="480" Width="1600">
-                <Image  x:Name="bg" Source="/CookieHell;component/img/bg_game_trial.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" />
+                <Image  x:Name="bg" Source="/CookieHell;component/img/bg_game_trial.png" Stretch="Fill" >
+                    <Image.RenderTransform>
+                        <CompositeTransform x:Name="bg_pontos"/>
+                    </Image.RenderTransform>
+                </Image>
             </Grid>
         </ScrollViewer>
-        <Image Height="100" Margin="0,0,0,40" VerticalAlignment="Bottom" Source="/CookieHell;component/img/cookie.png" HorizontalAlignment="Center" Width="96" RenderTransformOrigin="0.5,0.5">
+        <Image Height="100" Margin="0,0,0,40" VerticalAlignment="Bottom" Source="/CookieHell;component/img/cookie.png" HorizontalAlignment="Center" Width="96" >
             <Image.RenderTransform>
-                <CompositeTransform/>
+                <CompositeTransform x:Name="player_pontos"/>
             </Image.RenderTransform>
         </Image>
     </Grid>

@@ -131,6 +131,9 @@
     <Compile Include="Views\tmovimento2.xaml.vb">
       <DependentUpon>tmovimento2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\tmovimento3.xaml.vb">
+      <DependentUpon>tmovimento3.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -150,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\tmovimento2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\tmovimento3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
