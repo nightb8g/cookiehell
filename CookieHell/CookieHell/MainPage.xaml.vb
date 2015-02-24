@@ -27,7 +27,9 @@ Partial Public Class MainPage
     End Sub
 
     Private Sub player_KeyDown(sender As Object, e As KeyEventArgs)
-        If (ContentFrame.CurrentSource.OriginalString.Contains("tmovimento2")) Then
+        If (ContentFrame.CurrentSource.OriginalString.Contains("tmovimento3")) Then
+            CType(ContentFrame.Content, tmovimento3).player_KeyDown(sender, e)
+        ElseIf (ContentFrame.CurrentSource.OriginalString.Contains("tmovimento2")) Then
 
             CType(ContentFrame.Content, tmovimento2).player_KeyDown(sender, e)
         ElseIf (ContentFrame.CurrentSource.OriginalString.Contains("tmovimento")) Then
