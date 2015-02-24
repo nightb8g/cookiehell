@@ -69,8 +69,8 @@
         'Left
         keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
         keyframefinal.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 10))
-        keyframemidle.Value = bg_pontos.TranslateX + (direcao * 50)
-        keyframefinal.Value = keyframemidle.Value + (direcao * 80)
+        keyframemidle.Value = bg_pontos.TranslateX + (-direcao * 50)
+        keyframefinal.Value = keyframemidle.Value + (-direcao * 80)
         daLeft.KeyFrames.Add(keyframemidle)
         daLeft.KeyFrames.Add(keyframefinal)
         Storyboard.SetTarget(daLeft, bg_pontos)
@@ -97,14 +97,14 @@
     End Sub
     Private Sub stop_saltar(sender As Object, e As EventArgs)
         'CType(sender, Storyboard).Stop()
-        sender = Nothing
+        'sender = Nothing
     End Sub
     Private Sub saltarlado()
 
-        'Dim st As New Storyboard
-        'storyboard_saltar(st, direcao)
-        'st.Begin()
-        bg_pontos.TranslateY = 100
+        Dim st As New Storyboard
+        storyboard_saltar(st, direcao)
+        st.Begin()
+        'bg_pontos.TranslateY = 100
 
     End Sub
 End Class
