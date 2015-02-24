@@ -4,6 +4,7 @@
 
     Public Sub New()
         InitializeComponent()
+        teste.HorizontalContentAlignment = Windows.HorizontalAlignment.Center
     End Sub
 
     'Executes when the user navigates to this page.
@@ -18,18 +19,17 @@
         ElseIf (e.Key = Key.Left) Then
             esquerda()
         ElseIf (e.Key = Key.Up) Then
-            saltarlado()
+            ' saltarlado()
         End If
     End Sub
     Private Sub direita()
 
-        Dim temp As Double = bg_pontos.TranslateX + 10
-        If (temp >= 0 And temp <= 1024) Then
-            bg_pontos.TranslateX = temp
-        Else
-            player_pontos.TranslateX = 100
+        Dim try_bg As Integer = bg_pontos.TranslateX + 10
+        Dim try_pl As Integer = player_pontos.TranslateX + 10
+        If (try_pl >= 0 And try_pl <= 1600) Then
+            player_pontos.TranslateX = try_pl
         End If
-        direcao = 1
+        direcao = +1
         bg_pontos.ScaleX = direcao
 
 
@@ -37,10 +37,10 @@
 
     End Sub
     Private Sub esquerda()
-        Dim temp As Double = bg_pontos.TranslateX - 10
-        MessageBox.Show("1")
-        If (temp >= 0 And temp <= 1024) Then
-            bg_pontos.TranslateX = temp
+        Dim try_bg As Integer = bg_pontos.TranslateX - 10
+        Dim try_pl As Integer = player_pontos.TranslateX - 10
+        If (try_pl >= 0 And try_pl <= 1600) Then
+            player_pontos.TranslateX = try_pl
         End If
         direcao = -1
         bg_pontos.ScaleX = direcao

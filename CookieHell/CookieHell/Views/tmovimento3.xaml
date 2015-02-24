@@ -5,21 +5,15 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           d:DesignWidth="806" d:DesignHeight="604"
-           Title="tmovimento3 Page">
+          
+           Title="tmovimento3 Page" UseLayoutRounding="True" d:DesignWidth="800.239" d:DesignHeight="599.72" VerticalContentAlignment="Bottom" >
 
-    <Grid x:Name="LayoutRoot" RenderTransformOrigin="0.5,0.5">
-        <Image Source="/CookieHell;component/img/bg_game_trial.png" Margin="0,0,0,20" RenderTransformOrigin="0.5,0.5" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <Image.RenderTransform>
-                <CompositeTransform  x:Name="bg_pontos"/>
-            </Image.RenderTransform>
-        </Image>
-        <Image HorizontalAlignment="Center" Height="100" Margin="380,0,375,64" VerticalAlignment="Bottom" Width="51" Source="/CookieHell;component/img/c_go1.png" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <CompositeTransform x:Name="player_pontos" />
-            </Image.RenderTransform>
+    <Canvas x:Name="LayoutRoot">
+        <Image x:Name="bg" Source="/CookieHell;component/img/bg_game_trial.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <Image x:Name="player" HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="/CookieHell;component/img/c_go1.png" Stretch="None" Canvas.Top="440" Canvas.Left="40">
+            
         </Image>
 
-    </Grid>
+    </Canvas>
 </navigation:Page>
 

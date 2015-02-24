@@ -184,9 +184,6 @@
     <Resource Include="img\Koala.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\bgteste.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="img\cookiehellinc.png" />
     <Resource Include="img\cookiehell_inc.jpg" />
     <Resource Include="img\c_cookie.png" />
