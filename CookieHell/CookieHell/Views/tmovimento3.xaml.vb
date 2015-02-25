@@ -1,6 +1,13 @@
 ﻿Partial Public Class tmovimento3
     Inherits Page
-    Dim direcao As Integer = 1
+
+    Dim direcao As Double = 1
+
+
+
+
+
+
     Public Sub New()
         InitializeComponent()
 
@@ -14,65 +21,65 @@
     Public Sub player_KeyDown(sender As Object, e As KeyEventArgs)
 
         If (e.Key = Key.Right) Then
-            direita()
+            direcao = 1
+            mover(10, direcao)
         ElseIf (e.Key = Key.Left) Then
-            esquerda()
+            direcao = -1
+            mover(10, direcao)
         ElseIf (e.Key = Key.Up) Then
             saltarlado()
         End If
+
     End Sub
-    Private Sub direita()
-        Dim bgLeft As Double = bg.GetValue(Canvas.LeftProperty)
-        Dim bgWidth As Double = bg.ActualWidth
-        Dim canvasAWidth As Double = LayoutRoot.GetValue(Canvas.ActualWidthProperty)
-        Dim playerLeft As Double = player.GetValue(Canvas.LeftProperty)
-        Dim canvasMidle As Double = canvasAWidth / 2
+    Private Sub direita(playerLeft As Double, canvasMidle As Double, bgLeft As Double, bgWidth As Double, canvasWidth As Double, distancia As Double)
+
         If (playerLeft < canvasMidle) Then
-            player.SetValue(Canvas.LeftProperty, playerLeft + 10.0R)
-        ElseIf (canvasAWidth - bgLeft < bgWidth) Then
-            bg.SetValue(Canvas.LeftProperty, bgLeft - 10.0R)
-        ElseIf (playerLeft < canvasAWidth - player.ActualWidth) Then
-            player.SetValue(Canvas.LeftProperty, playerLeft + 10.0R)
+            player.SetValue(Canvas.LeftProperty, playerLeft + distancia)
+        ElseIf (canvasWidth - bgLeft < bgWidth) Then
+            bg.SetValue(Canvas.LeftProperty, bgLeft - distancia)
+        ElseIf (playerLeft < canvasWidth - player.ActualWidth) Then
+            player.SetValue(Canvas.LeftProperty, playerLeft + distancia)
         End If
-
-        'Dim trybg As Integer = bg_pontos.TranslateX - 10
-        'Dim trypl As Integer = player_pontos.TranslateX + 10
-        'If (trybg <= 200 And trybg >= -200 And player_pontos.TranslateX = 0) Then
-
-        '    bg_pontos.TranslateX = trybg
-        'ElseIf (trypl >= -200 And trypl <= 200) Then
-        '    player_pontos.TranslateX = trypl
-        'End If
-        'direcao = 1
-        'player_pontos.ScaleX = direcao
+        player.RenderTransform.SetValue(CompositeTransform.ScaleXProperty, direcao)
 
 
     End Sub
-    Private Sub esquerda()
+    Private Sub mover(distancia As Double, direcao As Double)
+        'Background
         Dim bgLeft As Double = bg.GetValue(Canvas.LeftProperty)
+        Dim bgTop As Double = bg.GetValue(Canvas.TopProperty)
         Dim bgWidth As Double = bg.ActualWidth
-        Dim canvasAWidth As Double = LayoutRoot.GetValue(Canvas.ActualWidthProperty)
+        Dim bgHeight As Double = bg.ActualHeight
+        'Player
         Dim playerLeft As Double = player.GetValue(Canvas.LeftProperty)
-        Dim canvasMidle As Double = canvasAWidth / 2
+        Dim playerTop As Double = player.GetValue(Canvas.TopProperty)
+        Dim playerWidth As Double = player.ActualWidth
+        Dim playerHeigh As Double = player.ActualHeight
+        'Canvas
+        Dim canvasWidth As Double = LayoutRoot.GetValue(Canvas.ActualWidthProperty)
+        Dim canvasHeight As Double = LayoutRoot.GetValue(Canvas.ActualHeightProperty)
+        Dim canvasMidle As Double = canvasWidth / 2
+
+        Select Case direcao
+            Case -1
+                esquerda(playerLeft, canvasMidle, bgLeft, distancia)
+            Case 1
+                direita(playerLeft, canvasMidle, bgLeft, bgWidth, canvasWidth, distancia)
+            Case 0
+                'saltar
+        End Select
+
+    End Sub
+    Private Sub esquerda(playerLeft As Double, canvasMidle As Double, bgLeft As Double, distancia As Double)
 
         If (playerLeft > canvasMidle) Then
-            player.SetValue(Canvas.LeftProperty, playerLeft - 10.0R)
+            player.SetValue(Canvas.LeftProperty, playerLeft - distancia)
         ElseIf (bgLeft < 0) Then
-            bg.SetValue(Canvas.LeftProperty, bgLeft + 10.0R)
+            bg.SetValue(Canvas.LeftProperty, bgLeft + distancia)
         ElseIf (playerLeft > 0) Then
-            player.SetValue(Canvas.LeftProperty, playerLeft - 10.0R)
+            player.SetValue(Canvas.LeftProperty, playerLeft - distancia)
         End If
-
-        'Dim trybg As Double = bg_pontos.TranslateX + 10
-        'Dim trypl As Integer = player_pontos.TranslateX - 10
-        'If (trybg <= 200 And trybg >= -200 And player_pontos.TranslateX = 0) Then
-        '    bg_pontos.TranslateX = trybg
-        'ElseIf (trypl >= -200 And trypl <= 200) Then
-        '    player_pontos.TranslateX = trypl
-        'End If
-        'direcao = -1
-        'player_pontos.ScaleX = direcao
-
+        player.RenderTransform.SetValue(CompositeTransform.ScaleXProperty, direcao)
 
     End Sub
 

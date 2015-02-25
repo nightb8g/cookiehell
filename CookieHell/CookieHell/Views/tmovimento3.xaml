@@ -10,8 +10,11 @@
 
     <Canvas x:Name="LayoutRoot">
         <Image x:Name="bg" Source="/CookieHell;component/img/bg_game_trial.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-        <Image x:Name="player" HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="/CookieHell;component/img/c_go1.png" Stretch="None" Canvas.Top="440" Canvas.Left="40">
-            
+        <Image x:Name="player" HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="/CookieHell;component/img/c_go1.png" Stretch="None" Canvas.Top="440" Canvas.Left="40" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <CompositeTransform x:Name="playerTransform"/>
+            </Image.RenderTransform>
+
         </Image>
 
     </Canvas>
