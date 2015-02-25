@@ -1,10 +1,11 @@
-﻿<navigation:Page x:Class="CookieHell.Game" 
+﻿<navigation:Page 
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-           mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="CookieHell.Game"
+           mc:Ignorable="d"
            d:DesignWidth="640" d:DesignHeight="480"
            Title="Game Page">
 	<navigation:Page.Resources>
@@ -14,24 +15,88 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="201"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
+		<Storyboard x:Name="c_jump">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="c_go1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="8.55"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="17.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="30.15"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="40.2"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="49.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="56.85"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="64.4"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="67.45"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="72"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="c_go1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-6.9"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-7.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-9.45"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-4.35"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="8.85"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="19.95"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="13.3"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="5.9"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="c_go1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="297">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="281"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="265"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="249"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="233"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="233"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="254.333"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="275.667"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="297"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 	</navigation:Page.Resources>
-    <Grid x:Name="LayoutRoot">
-        <Canvas>
-            <Image x:Name="go1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Bottom" Width="100" Canvas.Left="149" Canvas.Top="37" Source="/CookieHell;component/img/c_go1.png"/>
-            <Image x:Name="go2" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Canvas.Left="254" Canvas.Top="37" Source="/CookieHell;component/img/c_go2.png"/>
-            <Image Height="100" Canvas.Left="44" Canvas.Top="37" Width="100" Source="/CookieHell;component/img/c_jump.png"/>
-            <Image x:Name="c_go1" Height="100" Canvas.Left="191" Canvas.Top="297" Width="50" Source="/CookieHell;component/img/c_go2.png" RenderTransformOrigin="0.5,0.5">
-            	<Image.RenderTransform>
-            		<CompositeTransform/>
-            	</Image.RenderTransform>
-            </Image>
-        </Canvas>
-        <Image x:Name="c_go2" Source="/CookieHell;component/img/c_go2.png" RenderTransformOrigin="0.5,0.5" Margin="365,10,0,0" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50">
-        	<Image.RenderTransform>
-        		<CompositeTransform/>
-        	</Image.RenderTransform>
-        </Image>
+	<Grid x:Name="LayoutRoot">
+		<Canvas>
+			<Image x:Name="go1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Bottom" Width="100" Canvas.Left="149" Canvas.Top="37" Source="/CookieHell;component/img/c_go1.png"/>
+			<Image x:Name="go2" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Canvas.Left="254" Canvas.Top="37" Source="/CookieHell;component/img/c_go2.png"/>
+			<Image Height="100" Canvas.Left="44" Canvas.Top="37" Width="100" Source="/CookieHell;component/img/c_jump.png"/>
+			<Image x:Name="c_go1" Height="100" Canvas.Left="191" Canvas.Top="297" Width="50" Source="/CookieHell;component/img/c_jump.png" RenderTransformOrigin="0.5,0.5">
+				<Image.RenderTransform>
+					<CompositeTransform/>
+				</Image.RenderTransform>
+			</Image>
+			<Button x:Name="btn_run" Content="Run" Canvas.Left="500" Canvas.Top="252" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FFD69E25">
+				<Button.RenderTransform>
+					<CompositeTransform/>
+				</Button.RenderTransform>
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="Click">
+						<ei:ControlStoryboardAction Storyboard="{StaticResource c_move}"/>
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+			</Button>
+			<Button x:Name="btn_jump" Content="Jump" Height="22" Canvas.Left="500" Canvas.Top="297" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FFDE2AD6">
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="Click">
+						<ei:ControlStoryboardAction Storyboard="{StaticResource c_jump}"/>
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+				<Button.RenderTransform>
+					<CompositeTransform/>
+				</Button.RenderTransform>
+			</Button>
+		</Canvas>
 
-    </Grid>
+	</Grid>
 </navigation:Page>
 
