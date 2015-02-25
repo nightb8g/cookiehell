@@ -45,11 +45,16 @@
 
           <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
                                      NavigateUri="/tmovimento2" TargetName="ContentFrame" Content="tmovimento2"/>
-                    <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
+          <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
 
-                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" NavigateUri="/tmovimento3" TargetName="ContentFrame" Content="movimento"/>
+          <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" NavigateUri="/tmovimento3" TargetName="ContentFrame" Content="movimento"/>
 
-                </StackPanel>
+
+          <Rectangle x:Name="Divider3" Style="{StaticResource DividerStyle}"/>
+
+          <HyperlinkButton x:Name="Link4" Style="{StaticResource LinkStyle}" NavigateUri="/Game" TargetName="ContentFrame" Content="Game"/>
+
+        </StackPanel>
       </Border>
 
     </Grid>
