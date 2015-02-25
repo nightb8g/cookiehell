@@ -22,13 +22,19 @@
         End If
     End Sub
     Private Sub direita()
-        Dim Left As Double = bg.GetValue(Canvas.LeftProperty)
-        Dim Width As Double = bg.ActualWidth
-        Dim aw As Double = ActualWidth
-        'MessageBox.Show("Left " + Left.ToString + "Width " + Width.ToString + "aw " + aw.ToString)
-        If (aw - Left < Width) Then
-            bg.SetValue(Canvas.LeftProperty, Left - 10.0R)
+        Dim bgLeft As Double = bg.GetValue(Canvas.LeftProperty)
+        Dim bgWidth As Double = bg.ActualWidth
+        Dim canvasAWidth As Double = LayoutRoot.GetValue(Canvas.ActualWidthProperty)
+        Dim playerLeft As Double = player.GetValue(Canvas.LeftProperty)
+        Dim canvasMidle As Double = canvasAWidth / 2
+        If (playerLeft < canvasMidle) Then
+            player.SetValue(Canvas.LeftProperty, playerLeft + 10.0R)
+        ElseIf (canvasAWidth - bgLeft < bgWidth) Then
+            bg.SetValue(Canvas.LeftProperty, bgLeft - 10.0R)
+        ElseIf (playerLeft < canvasAWidth - player.ActualWidth) Then
+            player.SetValue(Canvas.LeftProperty, playerLeft + 10.0R)
         End If
+
         'Dim trybg As Integer = bg_pontos.TranslateX - 10
         'Dim trypl As Integer = player_pontos.TranslateX + 10
         'If (trybg <= 200 And trybg >= -200 And player_pontos.TranslateX = 0) Then
@@ -43,12 +49,18 @@
 
     End Sub
     Private Sub esquerda()
-        Dim Left As Double = bg.GetValue(Canvas.LeftProperty)
-        Dim Width As Double = bg.ActualWidth
-        Dim aw As Double = ActualWidth
+        Dim bgLeft As Double = bg.GetValue(Canvas.LeftProperty)
+        Dim bgWidth As Double = bg.ActualWidth
+        Dim canvasAWidth As Double = LayoutRoot.GetValue(Canvas.ActualWidthProperty)
+        Dim playerLeft As Double = player.GetValue(Canvas.LeftProperty)
+        Dim canvasMidle As Double = canvasAWidth / 2
 
-        If (Left < 0) Then
-            bg.SetValue(Canvas.LeftProperty, Left + 10.0R)
+        If (playerLeft > canvasMidle) Then
+            player.SetValue(Canvas.LeftProperty, playerLeft - 10.0R)
+        ElseIf (bgLeft < 0) Then
+            bg.SetValue(Canvas.LeftProperty, bgLeft + 10.0R)
+        ElseIf (playerLeft > 0) Then
+            player.SetValue(Canvas.LeftProperty, playerLeft - 10.0R)
         End If
 
         'Dim trybg As Double = bg_pontos.TranslateX + 10
