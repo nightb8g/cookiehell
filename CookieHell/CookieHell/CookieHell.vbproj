@@ -201,9 +201,9 @@
     <Resource Include="img\cookie.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\c_go1.png" />
-    <Resource Include="img\c_go2.png" />
-    <Resource Include="img\c_jump.png" />
+    <Resource Include="img\c_anda1.png" />
+    <Resource Include="img\c_anda2.png" />
+    <Resource Include="img\c_salta.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -67,31 +67,18 @@
 	</navigation:Page.Resources>
 	<Grid x:Name="LayoutRoot">
 		<Canvas>
-			<Image x:Name="go1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Bottom" Width="100" Canvas.Left="149" Canvas.Top="37" Source="/CookieHell;component/img/c_go1.png"/>
-			<Image x:Name="go2" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Canvas.Left="254" Canvas.Top="37" Source="/CookieHell;component/img/c_go2.png"/>
-			<Image Height="100" Canvas.Left="44" Canvas.Top="37" Width="100" Source="/CookieHell;component/img/c_jump.png"/>
-			<Image x:Name="c_go1" Height="100" Canvas.Left="191" Canvas.Top="297" Width="50" Source="/CookieHell;component/img/c_jump.png" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="c_go1" Height="100" Canvas.Left="191" Canvas.Top="297" Width="50" Source="/CookieHell;component/img/c_anda1.png" RenderTransformOrigin="0.5,0.5">
 				<Image.RenderTransform>
 					<CompositeTransform/>
 				</Image.RenderTransform>
 			</Image>
 			<Button x:Name="btn_run" Content="Run" Canvas.Left="500" Canvas.Top="252" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FFD69E25">
-				<Button.RenderTransform>
-					<CompositeTransform/>
-				</Button.RenderTransform>
-				<i:Interaction.Triggers>
-					<i:EventTrigger EventName="Click">
-						<ei:ControlStoryboardAction Storyboard="{StaticResource c_move}"/>
-					</i:EventTrigger>
-				</i:Interaction.Triggers>
-			</Button>
-			<Button x:Name="btn_jump" Content="Jump" Height="22" Canvas.Left="500" Canvas.Top="297" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FFDE2AD6">
-				<i:Interaction.Triggers>
-					<i:EventTrigger EventName="Click">
-						<ei:ControlStoryboardAction Storyboard="{StaticResource c_jump}"/>
-					</i:EventTrigger>
-				</i:Interaction.Triggers>
-				<Button.RenderTransform>
+                <Button.RenderTransform>
+                    <CompositeTransform/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="btn_jump" Content="Jump" Height="22" Canvas.Left="500" Canvas.Top="297" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FFDE2AD6">
+                <Button.RenderTransform>
 					<CompositeTransform/>
 				</Button.RenderTransform>
 			</Button>
