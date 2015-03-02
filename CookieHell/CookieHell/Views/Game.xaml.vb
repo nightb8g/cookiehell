@@ -67,7 +67,7 @@
         kf0.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 0.1))
         kf0.Value = 8.55R
 
-        daJump.Key.add(kf0)
+        'daJump.Key.add(kf0)
 
         '	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="c_go1">
         '		<EasingDoubleKeyFrame KeyTime="0" Value="0">

@@ -1,9 +1,10 @@
-﻿Partial Public Class tmovimento3
+﻿Imports System.Windows.Media.Imaging
+
+Partial Public Class tmovimento3
     Inherits Page
 
     Dim direcao As Double = 1
     Dim playerimgcount As Integer = 1
-
     Public Sub New()
         InitializeComponent()
 
@@ -24,9 +25,40 @@
             mover(15, direcao)
         ElseIf (e.Key = Key.Up) Then
             saltarlado()
+        ElseIf (e.Key = Key.B) Then
+            Dim rand As New Random()
+            Dim val = rand.NextDouble() * (bg.ActualWidth - 200) ' para nao aparecer nas margens
+
+            gerarCaixa(val)
         End If
 
     End Sub
+
+    Private Function colisao(ByVal obj1 As Image, ByVal obj2 As Image) As Boolean
+
+        Dim obj1Left As Double = obj1.GetValue(Canvas.LeftProperty)
+        Dim obj2Left As Double = obj2.GetValue(Canvas.LeftProperty)
+        Dim obj1Top As Double = obj1.GetValue(Canvas.TopProperty)
+        Dim obj2Top As Double = obj2.GetValue(Canvas.TopProperty)
+        Dim obj1Width As Double = obj1.GetValue(Canvas.ActualWidthProperty)
+        Dim obj2Width As Double = obj2.GetValue(Canvas.ActualWidthProperty)
+        Dim obj1Right As Double = obj1Left + obj1Width
+        Dim obj2Right As Double = obj2Left + obj2Width
+        Dim obj1Bottom As Double = obj1Top + obj1.GetValue(Canvas.ActualHeightProperty)
+        Dim obj2Bottom As Double = obj2Top + obj2.GetValue(Canvas.ActualHeightProperty)
+
+        If (obj1Left < obj2Right And obj2Left < obj1Right) Then
+            If obj1Top < obj2Bottom And obj2Top < obj1Bottom Then
+                'colidiu em cima/baixo + esquerda/direita
+                Return True
+            Else
+                'colidiu esquerda+direita
+                Return True
+            End If
+        Else
+            Return False
+        End If
+    End Function
     Private Sub direita(playerLeft As Double, canvasMidle As Double, bgLeft As Double, bgWidth As Double, canvasWidth As Double, distancia As Double)
 
         If (playerLeft < canvasMidle) Then
@@ -60,14 +92,13 @@
         Dim canvasHeight As Double = LayoutRoot.GetValue(Canvas.ActualHeightProperty)
         Dim canvasMidle As Double = canvasWidth / 2
 
-
         'MessageBox.Show(player.Source.GetValue(Media.Imaging.BitmapImage.UriSourceProperty).ToString)
 
         If (playerimgcount = 1) Then
-            player.Source.SetValue(Media.Imaging.BitmapImage.UriSourceProperty, New Uri("/CookieHell;component/img/c_go1.png", UriKind.RelativeOrAbsolute))
+            player.Source.SetValue(Media.Imaging.BitmapImage.UriSourceProperty, New Uri("/CookieHell;component/img/c_anda1.png", UriKind.RelativeOrAbsolute))
             playerimgcount = 2
         Else
-            player.Source.SetValue(Media.Imaging.BitmapImage.UriSourceProperty, New Uri("/CookieHell;component/img/c_go2.png", UriKind.RelativeOrAbsolute))
+            player.Source.SetValue(Media.Imaging.BitmapImage.UriSourceProperty, New Uri("/CookieHell;component/img/c_anda2.png", UriKind.RelativeOrAbsolute))
             playerimgcount = 1
         End If
 
@@ -79,7 +110,12 @@
             Case 0
                 'saltar
         End Select
+        For Each img As Image In caixas.Children
+            If (colisao(player, img)) Then
+                MessageBox.Show("colidiu")
+            End If
 
+        Next
     End Sub
     Private Sub esquerda(playerLeft As Double, canvasMidle As Double, bgLeft As Double, distancia As Double)
 
@@ -89,6 +125,7 @@
             bg.SetValue(Canvas.LeftProperty, bgLeft + distancia)
         ElseIf (playerLeft > 0) Then
             player.SetValue(Canvas.LeftProperty, playerLeft - distancia)
+
         End If
         player.RenderTransform.SetValue(CompositeTransform.ScaleXProperty, direcao)
 
@@ -144,6 +181,24 @@
         'CType(sender, Storyboard).Stop()
         'sender = Nothing
     End Sub
+
+
+    Private Sub gerarCaixa(ByVal Left As Double)
+        '<Image Height="100" Canvas.Left="975" Canvas.Top="440" Width="100" Source="/CookieHell;component/img/obj.jpg"/>
+        Dim box As New Image
+        box.Source = New BitmapImage(New Uri("/CookieHell;component/img/obj.jpg", UriKind.RelativeOrAbsolute))
+        box.Width = 100.0R
+        box.Height = 100.0R
+        box.SetValue(Canvas.TopProperty, 440.0R)
+        box.SetValue(Canvas.LeftProperty, Left)
+        Dim lbl As New Label
+        caixas.Children.Add(box)
+
+    End Sub
+    Private Sub gerarEnimigo()
+
+    End Sub
+
     Private Sub saltarlado()
 
         Dim st As New Storyboard
