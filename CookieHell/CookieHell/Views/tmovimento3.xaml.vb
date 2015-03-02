@@ -2,11 +2,7 @@
     Inherits Page
 
     Dim direcao As Double = 1
-
-
-
-
-
+    Dim playerimgcount As Integer = 1
 
     Public Sub New()
         InitializeComponent()
@@ -50,15 +46,30 @@
         Dim bgTop As Double = bg.GetValue(Canvas.TopProperty)
         Dim bgWidth As Double = bg.ActualWidth
         Dim bgHeight As Double = bg.ActualHeight
+        Dim bgRight As Double = bgLeft + bgWidth
+
         'Player
         Dim playerLeft As Double = player.GetValue(Canvas.LeftProperty)
         Dim playerTop As Double = player.GetValue(Canvas.TopProperty)
         Dim playerWidth As Double = player.ActualWidth
         Dim playerHeigh As Double = player.ActualHeight
+        Dim playerRight As Double = playerLeft + playerWidth
+
         'Canvas
         Dim canvasWidth As Double = LayoutRoot.GetValue(Canvas.ActualWidthProperty)
         Dim canvasHeight As Double = LayoutRoot.GetValue(Canvas.ActualHeightProperty)
         Dim canvasMidle As Double = canvasWidth / 2
+
+
+        'MessageBox.Show(player.Source.GetValue(Media.Imaging.BitmapImage.UriSourceProperty).ToString)
+
+        If (playerimgcount = 1) Then
+            player.Source.SetValue(Media.Imaging.BitmapImage.UriSourceProperty, New Uri("/CookieHell;component/img/c_go1.png", UriKind.RelativeOrAbsolute))
+            playerimgcount = 2
+        Else
+            player.Source.SetValue(Media.Imaging.BitmapImage.UriSourceProperty, New Uri("/CookieHell;component/img/c_go2.png", UriKind.RelativeOrAbsolute))
+            playerimgcount = 1
+        End If
 
         Select Case direcao
             Case -1
@@ -100,7 +111,7 @@
         'Dim keyframemidle As New EasingDoubleKeyFrame
         'Dim keyframefinal As New EasingDoubleKeyFrame
 
-        ''Left
+        'Left
         'keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
         'keyframefinal.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 10))
         'keyframemidle.Value = bg_pontos.TranslateX + (-direcao * 50)
@@ -111,7 +122,7 @@
         'Storyboard.SetTargetProperty(daLeft, New PropertyPath(CompositeTransform.TranslateXProperty))
         'st.Children.Add(daLeft)
 
-        ''Top
+        'Top
         'keyframemidle = New EasingDoubleKeyFrame
         'keyframefinal = New EasingDoubleKeyFrame
         'keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
