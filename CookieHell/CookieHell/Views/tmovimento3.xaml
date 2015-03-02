@@ -9,8 +9,11 @@
            Title="tmovimento3 Page" UseLayoutRounding="True" d:DesignWidth="800.239" d:DesignHeight="599.72" VerticalContentAlignment="Bottom" >
 
     <Canvas x:Name="LayoutRoot">
-        <Image x:Name="bg" Source="/CookieHell;component/img/bg_game_trial.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-        <Image x:Name="player" HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="/CookieHell;component/img/c_go1.png" Stretch="None" Canvas.Top="440" Canvas.Left="40" RenderTransformOrigin="0.5,0.5">
+        <Canvas x:Name="bg" Width="1600" Height="600">
+            <Image Source="/CookieHell;component/img/bg_game_trial.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+            <Image Height="100" Canvas.Left="975" Canvas.Top="440" Width="100" Source="/CookieHell;component/img/obj.jpg"/>
+        </Canvas>
+        <Image x:Name="player" HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="/CookieHell;component/img/c_go1.png" Stretch="None" Canvas.Top="440" Canvas.Left="40" RenderTransformOrigin="0.5,0.5" d:IsLocked="True">
             <Image.RenderTransform>
                 <CompositeTransform x:Name="playerTransform"/>
             </Image.RenderTransform>

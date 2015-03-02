@@ -18,10 +18,10 @@
 
         If (e.Key = Key.Right) Then
             direcao = 1
-            mover(10, direcao)
+            mover(15, direcao)
         ElseIf (e.Key = Key.Left) Then
             direcao = -1
-            mover(10, direcao)
+            mover(15, direcao)
         ElseIf (e.Key = Key.Up) Then
             saltarlado()
         End If
