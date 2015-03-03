@@ -26,9 +26,10 @@ Partial Public Class tmovimento3
         ElseIf (e.Key = Key.Up) Then
             saltarlado()
         ElseIf (e.Key = Key.B) Then
-            Dim rand As New Random()
-            Dim val = rand.NextDouble() * (bg.ActualWidth - 200) ' para nao aparecer nas margens
-            gerarCaixa(val)
+            
+
+            gerarCaixa()
+
         End If
 
     End Sub
@@ -216,18 +217,27 @@ Partial Public Class tmovimento3
     End Sub
 
 
-    Private Sub gerarCaixa(ByVal Left As Double)
+    Private Function gerarCaixa(Optional ByVal Left As Double = 0.0R) As Boolean
         '<Image Height="100" Canvas.Left="975" Canvas.Top="440" Width="100" Source="/CookieHell;component/img/obj.jpg"/>
+        If (Left = 0) Then
+            Dim rand As New Random()
+            Left = rand.NextDouble() * (bg.ActualWidth - 200) 'para nao aparecer nas margens
+        End If
         Dim box As New Image
         box.Source = New BitmapImage(New Uri("/CookieHell;component/img/obj.jpg", UriKind.RelativeOrAbsolute))
         box.Width = 100.0R
         box.Height = 100.0R
         box.SetValue(Canvas.TopProperty, 440.0R)
         box.SetValue(Canvas.LeftProperty, Left)
-        Dim lbl As New Label
+        'Dim lbl As New Label
+        For Each obj As Image In caixas.Children
+            If (colisao(box, obj) And Not obj.Equals(bgimg) And Not obj.Equals(player)) Then
+                Return False
+            End If
+        Next
         caixas.Children.Add(box)
-
-    End Sub
+        Return True
+    End Function
     Private Sub gerarEnimigo(ByVal Left As Double)
         'ToBeImplemented
     End Sub
