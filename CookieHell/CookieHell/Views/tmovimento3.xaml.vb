@@ -34,28 +34,31 @@ Partial Public Class tmovimento3
 
     End Sub
 
-    Private Function colisao(ByVal obj1 As Image, ByVal obj2 As Image) As Boolean
+    Private Function colisao(ByRef obj1 As Image, ByRef obj2 As Image) As Boolean
 
         Dim obj1Left As Double = obj1.GetValue(Canvas.LeftProperty)
         Dim obj2Left As Double = obj2.GetValue(Canvas.LeftProperty)
         Dim obj1Top As Double = obj1.GetValue(Canvas.TopProperty)
         Dim obj2Top As Double = obj2.GetValue(Canvas.TopProperty)
         Dim obj1Width As Double = obj1.GetValue(Canvas.ActualWidthProperty)
-        Dim obj2Width As Double = obj2.GetValue(Canvas.ActualWidthProperty)
+        Dim obj2Width As Double = obj2.GetValue(Canvas.WidthProperty)
         Dim obj1Right As Double = obj1Left + obj1Width
         Dim obj2Right As Double = obj2Left + obj2Width
         Dim obj1Bottom As Double = obj1Top + obj1.GetValue(Canvas.ActualHeightProperty)
         Dim obj2Bottom As Double = obj2Top + obj2.GetValue(Canvas.ActualHeightProperty)
 
-        If (obj1Left < obj2Right And obj2Left < obj1Right) Then
+        If (obj2Left - obj1Right < 0 And obj2Right - obj1Left > 0) Then
             If obj1Top < obj2Bottom And obj2Top < obj1Bottom Then
                 'colidiu em cima/baixo + esquerda/direita
+                obj2.Visibility = Windows.Visibility.Collapsed
                 Return True
             Else
                 'colidiu esquerda+direita
+                obj2.Visibility = Windows.Visibility.Collapsed
                 Return True
             End If
         Else
+            obj2.Visibility = Windows.Visibility.Visible
             Return False
         End If
     End Function
@@ -112,7 +115,7 @@ Partial Public Class tmovimento3
         End Select
         For Each img As Image In caixas.Children
             If (colisao(player, img)) Then
-                MessageBox.Show("colidiu")
+                '  MessageBox.Show("colidiu")
             End If
 
         Next
