@@ -12,17 +12,26 @@
 
     <Canvas x:Name="LayoutRoot">
         <Canvas x:Name="bg" Width="1600" Height="600">
-            <Image x:Name="bgimg" Source="/CookieHell;component/img/bg_game_trial.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-            <Canvas x:Name="caixas" Height="600" Width="1600" d:IsLocked="True">
+            <Image x:Name="bgimg" Source="/CookieHell;component/img/bg_game_trial.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Bottom" d:IsLocked="True"/>
+            <Canvas x:Name="enimigos" d:IsLocked="True">
+                <Image Height="100" Width="100" Canvas.Left="1328" Canvas.Top="440" Source="/CookieHell;component/img/cookie.png"/>
+            </Canvas>
+            <Canvas x:Name="caixas" d:IsLocked="True">
                 <Image Height="100" Width="100" Source="/CookieHell;component/img/obj.jpg" Canvas.Left="1050" Canvas.Top="439"/>
             </Canvas>
-            <Image x:Name="player" HorizontalAlignment="Center" VerticalAlignment="Bottom" Source="/CookieHell;component/img/c_anda1.png" Stretch="None" Canvas.Top="440" RenderTransformOrigin="0.5,0.5" Canvas.Left="300" CacheMode="BitmapCache" d:IsLocked="True">
+            <Image x:Name="player" HorizontalAlignment="Center" VerticalAlignment="Bottom" Source="/CookieHell;component/img/c_anda1.png" Stretch="None" Canvas.Top="440" RenderTransformOrigin="0.5,0.5" Canvas.Left="20" CacheMode="BitmapCache" d:IsLocked="True">
                 <Image.RenderTransform>
                     <CompositeTransform x:Name="playerTransform"/>
                 </Image.RenderTransform>
 
             </Image>
         </Canvas>
+        <sdk:Label Content="Vidas:" FontSize="36" Height="53" Width="114"/>
+        <Grid x:Name="vidas" Height="57" Canvas.Top="10" Width="686" Canvas.Left="114">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
 
     </Canvas>
 </navigation:Page>

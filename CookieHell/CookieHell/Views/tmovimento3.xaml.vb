@@ -7,15 +7,19 @@ Partial Public Class tmovimento3
     Dim playerimgcount As Integer = 1
     Dim playerimg1 As New BitmapImage(New Uri("/CookieHell;component/img/c_anda1.png", UriKind.RelativeOrAbsolute))
     Dim playerimg2 As New BitmapImage(New Uri("/CookieHell;component/img/c_anda2.png", UriKind.RelativeOrAbsolute))
+    Dim vidasimg As New BitmapImage(New Uri("/CookieHell;component/img/cookie.png", UriKind.RelativeOrAbsolute))
+    Dim playervidas As Integer = 3
     Public Sub New()
         InitializeComponent()
-
+        tirarVida()
     End Sub
 
     'Executes when the user navigates to this page.
     Protected Overrides Sub OnNavigatedTo(ByVal e As System.Windows.Navigation.NavigationEventArgs)
 
     End Sub
+
+
     Public Sub player_KeyDown(sender As Object, e As KeyEventArgs)
 
         If (e.Key = Key.Right) Then
@@ -26,9 +30,11 @@ Partial Public Class tmovimento3
             mover(player, 15.0R, direcao)
         ElseIf (e.Key = Key.Up) Then
             saltarlado()
-        ElseIf (e.Key = Key.B) Then
+        ElseIf (e.Key = Key.D) Then 'morre
+            playervidas = 0
+        ElseIf (e.Key = Key.B) Then 'gera nova caixa
             gerarCaixa() 'random
-            gerarCaixa(100) 'posição definida
+            gerarCaixa(100) 'posição definida (100 é coordenada x)
         End If
 
     End Sub
@@ -108,8 +114,20 @@ Partial Public Class tmovimento3
             Else
                 img.Visibility = Windows.Visibility.Visible
             End If
-
         Next
+        For Each img As Image In enimigos.Children
+            If (colisao(player, img)) Then
+                '  MessageBox.Show("colidiu")
+                player.SetValue(Canvas.LeftProperty, 20.0R)
+                bg.SetValue(Canvas.LeftProperty, 0.0R)
+                playervidas -= 1
+                tirarVida()
+            End If
+        Next
+        If (playervidas <= 0) Then
+            MessageBox.Show("Game Over")
+            NavigationService.Refresh()
+        End If
     End Sub
     Private Sub direita(ByRef obj As Image, distancia As Double)
         'metodo antigo (apenas para referência)
@@ -245,7 +263,21 @@ Partial Public Class tmovimento3
         'ToBeImplemented
 
     End Sub
+    Private Sub tirarVida()
+        vidas.Children.Clear()
 
+        For i As Integer = 0 To playervidas - 1 Step 1
+            Dim image As New Image
+            image.Source = vidasimg
+            image.Width = 50
+            image.Height = 50
+            Dim column As New ColumnDefinition
+            column.Width = New GridLength(50.0R)
+            vidas.ColumnDefinitions.Add(column)
+            Grid.SetColumn(image, i)
+            vidas.Children.Add(image)
+        Next
+    End Sub
     Private Sub saltarlado()
 
         Dim st As New Storyboard
