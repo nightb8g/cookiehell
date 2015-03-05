@@ -16,7 +16,7 @@
             <Canvas x:Name="caixas" Height="600" Width="1600" d:IsLocked="True">
                 <Image Height="100" Width="100" Source="/CookieHell;component/img/obj.jpg" Canvas.Left="1050" Canvas.Top="439"/>
             </Canvas>
-            <Image x:Name="player" HorizontalAlignment="Center" VerticalAlignment="Bottom" Source="/CookieHell;component/img/c_anda1.png" Stretch="None" Canvas.Top="440" RenderTransformOrigin="0.5,0.5" Canvas.Left="300" CacheMode="BitmapCache">
+            <Image x:Name="player" HorizontalAlignment="Center" VerticalAlignment="Bottom" Source="/CookieHell;component/img/c_anda1.png" Stretch="None" Canvas.Top="440" RenderTransformOrigin="0.5,0.5" Canvas.Left="300" CacheMode="BitmapCache" d:IsLocked="True">
                 <Image.RenderTransform>
                     <CompositeTransform x:Name="playerTransform"/>
                 </Image.RenderTransform>

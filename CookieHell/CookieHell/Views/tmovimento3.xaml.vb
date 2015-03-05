@@ -5,7 +5,8 @@ Partial Public Class tmovimento3
 
     Dim direcao As Double = 1
     Dim playerimgcount As Integer = 1
-
+    Dim playerimg1 As New BitmapImage(New Uri("/CookieHell;component/img/c_anda1.png", UriKind.RelativeOrAbsolute))
+    Dim playerimg2 As New BitmapImage(New Uri("/CookieHell;component/img/c_anda2.png", UriKind.RelativeOrAbsolute))
     Public Sub New()
         InitializeComponent()
 
@@ -26,10 +27,8 @@ Partial Public Class tmovimento3
         ElseIf (e.Key = Key.Up) Then
             saltarlado()
         ElseIf (e.Key = Key.B) Then
-            
-
-            gerarCaixa()
-
+            gerarCaixa() 'random
+            gerarCaixa(100) 'posição definida
         End If
 
     End Sub
@@ -50,15 +49,14 @@ Partial Public Class tmovimento3
         If (obj2Left - obj1Right < 0 And obj2Right - obj1Left > 0) Then
             If obj1Top < obj2Bottom And obj2Top < obj1Bottom Then
                 'colidiu em cima/baixo + esquerda/direita
-                obj2.Visibility = Windows.Visibility.Collapsed
+                ' obj2.Visibility = Windows.Visibility.Collapsed
                 Return True
             Else
                 'colidiu esquerda+direita
-                obj2.Visibility = Windows.Visibility.Collapsed
+                'obj2.Visibility = Windows.Visibility.Collapsed
                 Return True
             End If
         Else
-            obj2.Visibility = Windows.Visibility.Visible
             Return False
         End If
     End Function
@@ -86,10 +84,12 @@ Partial Public Class tmovimento3
         'MessageBox.Show(player.Source.GetValue(Media.Imaging.BitmapImage.UriSourceProperty).ToString)
         If (obj.Equals(player)) Then
             If (playerimgcount = 1) Then
-                player.Source.SetValue(Media.Imaging.BitmapImage.UriSourceProperty, New Uri("/CookieHell;component/img/c_anda1.png", UriKind.RelativeOrAbsolute))
+                'player.Source.SetValue(Media.Imaging.BitmapImage.UriSourceProperty, New Uri("/CookieHell;component/img/c_anda1.png", UriKind.RelativeOrAbsolute))
+                player.Source = playerimg2
                 playerimgcount = 2
             Else
-                player.Source.SetValue(Media.Imaging.BitmapImage.UriSourceProperty, New Uri("/CookieHell;component/img/c_anda2.png", UriKind.RelativeOrAbsolute))
+                'player.Source.SetValue(Media.Imaging.BitmapImage.UriSourceProperty, New Uri("/CookieHell;component/img/c_anda2.png", UriKind.RelativeOrAbsolute))
+                player.Source = playerimg1
                 playerimgcount = 1
             End If
         End If
@@ -104,6 +104,9 @@ Partial Public Class tmovimento3
         For Each img As Image In caixas.Children
             If (colisao(player, img)) Then
                 '  MessageBox.Show("colidiu")
+                img.Visibility = Windows.Visibility.Collapsed
+            Else
+                img.Visibility = Windows.Visibility.Visible
             End If
 
         Next
@@ -229,9 +232,9 @@ Partial Public Class tmovimento3
         box.Height = 100.0R
         box.SetValue(Canvas.TopProperty, 440.0R)
         box.SetValue(Canvas.LeftProperty, Left)
-        'Dim lbl As New Label
+
         For Each obj As Image In caixas.Children
-            If (colisao(box, obj) And Not obj.Equals(bgimg) And Not obj.Equals(player)) Then
+            If (colisao(box, obj) Or colisao(box, player)) Then
                 Return False
             End If
         Next
@@ -240,6 +243,7 @@ Partial Public Class tmovimento3
     End Function
     Private Sub gerarEnimigo(ByVal Left As Double)
         'ToBeImplemented
+
     End Sub
 
     Private Sub saltarlado()
