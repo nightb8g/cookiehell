@@ -38,6 +38,7 @@
         Dim st As New Storyboard 'cria uma instancia da storyboard
 
         st.Children.Add(daLeft) 'adiciona o obj ao conjunto
+        st.SpeedRatio = 10
         st.Begin()
         'c_go1.Source.SetValue(Media.Imaging.BitmapImage.UriSourceProperty, New Uri("/c_anda2.png", UriKind.RelativeOrAbsolute))
 
