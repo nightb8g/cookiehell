@@ -205,6 +205,9 @@
     <Resource Include="img\c_anda2.png" />
     <Resource Include="img\c_salta.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\level_troll.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

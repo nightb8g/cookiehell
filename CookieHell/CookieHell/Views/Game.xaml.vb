@@ -18,7 +18,7 @@
         '	</DoubleAnimationUsingKeyFrames>
         '</Storyboard>
 
-        Const playerMove As Double = 5.0R 'valor do movimento
+        Const playerMove As Double = 10.0R 'valor do movimento
         Dim playerPosition As Double = c_go1.GetValue(Canvas.LeftProperty) 'valor da posição do obj no canvas
 
         Dim daLeft As New DoubleAnimationUsingKeyFrames 'conjunto keyFrame
@@ -38,6 +38,7 @@
         Dim st As New Storyboard 'cria uma instancia da storyboard
 
         st.Children.Add(daLeft) 'adiciona o obj ao conjunto
+        st.SpeedRatio = 10
         st.Begin()
         'c_go1.Source.SetValue(Media.Imaging.BitmapImage.UriSourceProperty, New Uri("/c_anda2.png", UriKind.RelativeOrAbsolute))
 
@@ -61,8 +62,8 @@
         '		<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="67.45"/>
         '		<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="72"/>
         '	</DoubleAnimationUsingKeyFrames>
-        Dim daJump As DoubleAnimationUsingKeyFrames
-        Dim kf0 As EasingDoubleKeyFrame
+        Dim daJump As New DoubleAnimationUsingKeyFrames
+        Dim kf0 As New EasingDoubleKeyFrame
 
         kf0.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 0.1))
         kf0.Value = 8.55R

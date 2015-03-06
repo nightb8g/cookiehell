@@ -12,8 +12,8 @@
 
     <Canvas x:Name="LayoutRoot">
         <Canvas x:Name="bg" Width="1600" Height="600">
-            <Image x:Name="bgimg" Source="/CookieHell;component/img/bg_game_trial.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Bottom" d:IsLocked="True"/>
-            <Canvas x:Name="enimigos" d:IsLocked="True">
+            <Image x:Name="bgimg" Source="/CookieHell;component/img/bg_game_trial.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+            <Canvas x:Name="enimigos">
                 <Image Height="100" Width="100" Canvas.Left="1328" Canvas.Top="440" Source="/CookieHell;component/img/cookie.png"/>
             </Canvas>
             <Canvas x:Name="caixas" d:IsLocked="True">

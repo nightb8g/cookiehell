@@ -8,6 +8,7 @@ Partial Public Class tmovimento3
     Dim playerimg1 As New BitmapImage(New Uri("/CookieHell;component/img/c_anda1.png", UriKind.RelativeOrAbsolute))
     Dim playerimg2 As New BitmapImage(New Uri("/CookieHell;component/img/c_anda2.png", UriKind.RelativeOrAbsolute))
     Dim vidasimg As New BitmapImage(New Uri("/CookieHell;component/img/cookie.png", UriKind.RelativeOrAbsolute))
+
     Dim playervidas As Integer = 3
     Public Sub New()
         InitializeComponent()
@@ -35,8 +36,18 @@ Partial Public Class tmovimento3
         ElseIf (e.Key = Key.B) Then 'gera nova caixa
             gerarCaixa() 'random
             gerarCaixa(100) 'posição definida (100 é coordenada x)
+        ElseIf (e.Key = Key.L) Then 'gera nova caixa
+            Dim lvl2 As New BitmapImage(New Uri("/CookieHell;component/img/level_troll.png", UriKind.RelativeOrAbsolute))
+            mudarbg(lvl2)
         End If
 
+    End Sub
+    Private Sub mudarbg(imagem As BitmapImage)
+        bgimg.Source = imagem
+        bg.Width = 3484
+        bg.Height = 600
+        bgimg.Width = 3484
+        bg.Height = 600
     End Sub
 
     Private Function colisao(ByRef obj1 As Image, ByRef obj2 As Image) As Boolean
@@ -115,15 +126,15 @@ Partial Public Class tmovimento3
                 img.Visibility = Windows.Visibility.Visible
             End If
         Next
-        For Each img As Image In enimigos.Children
-            If (colisao(player, img)) Then
-                '  MessageBox.Show("colidiu")
-                player.SetValue(Canvas.LeftProperty, 20.0R)
-                bg.SetValue(Canvas.LeftProperty, 0.0R)
-                playervidas -= 1
-                tirarVida()
-            End If
-        Next
+        'For Each img As Image In enimigos.Children
+        '    If (colisao(player, img)) Then
+        '          MessageBox.Show("colidiu")
+        '        player.SetValue(Canvas.LeftProperty, 20.0R)
+        '        bg.SetValue(Canvas.LeftProperty, 0.0R)
+        '        playervidas -= 1
+        '        tirarVida()
+        '    End If
+        'Next
         If (playervidas <= 0) Then
             MessageBox.Show("Game Over")
             NavigationService.Refresh()
@@ -176,7 +187,7 @@ Partial Public Class tmovimento3
         Dim objleft As Double = obj.GetValue(Canvas.LeftProperty)
         Dim canvasmidle As Double = LayoutRoot.ActualWidth / 2
 
-        If (canvasleft - bgleft > 0 And objleft < canvasmidle) Then
+        If (canvasleft - bgleft > 0 And (objleft + bgleft) < canvasmidle) Then
             bg.SetValue(Canvas.LeftProperty, bg.GetValue(Canvas.LeftProperty) + distancia)
         End If
         If (objleft > 0) Then
@@ -198,37 +209,37 @@ Partial Public Class tmovimento3
         '	</DoubleAnimationUsingKeyFrames>
         '</Storyboard> -->
 
-        'Dim daTop As New DoubleAnimationUsingKeyFrames
-        'Dim daLeft As New DoubleAnimationUsingKeyFrames
-        'Dim keyframemidle As New EasingDoubleKeyFrame
-        'Dim keyframefinal As New EasingDoubleKeyFrame
+        Dim daTop As New DoubleAnimationUsingKeyFrames
+        Dim daLeft As New DoubleAnimationUsingKeyFrames
+        Dim keyframemidle As New EasingDoubleKeyFrame
+        Dim keyframefinal As New EasingDoubleKeyFrame
 
         'Left
-        'keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
-        'keyframefinal.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 10))
-        'keyframemidle.Value = bg_pontos.TranslateX + (-direcao * 50)
-        'keyframefinal.Value = keyframemidle.Value + (-direcao * 80)
-        'daLeft.KeyFrames.Add(keyframemidle)
-        'daLeft.KeyFrames.Add(keyframefinal)
-        'Storyboard.SetTarget(daLeft, bg_pontos)
-        'Storyboard.SetTargetProperty(daLeft, New PropertyPath(CompositeTransform.TranslateXProperty))
-        'st.Children.Add(daLeft)
+        keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
+        keyframefinal.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 10))
+        keyframemidle.Value = player.GetValue(Canvas.LeftProperty) + (direcao * 50)
+        keyframefinal.Value = keyframemidle.Value + (direcao * 80)
+        daLeft.KeyFrames.Add(keyframemidle)
+        daLeft.KeyFrames.Add(keyframefinal)
+        Storyboard.SetTarget(daLeft, player)
+        Storyboard.SetTargetProperty(daLeft, New PropertyPath(Canvas.LeftProperty))
+        st.Children.Add(daLeft)
 
         'Top
-        'keyframemidle = New EasingDoubleKeyFrame
-        'keyframefinal = New EasingDoubleKeyFrame
-        'keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
-        'keyframefinal.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 10))
-        'keyframemidle.Value = bg_pontos.TranslateY + 100
-        ''keyframefinal.Value = keyframemidle.Value + 100
-        'keyframefinal.Value = 0
-        'daTop.KeyFrames.Add(keyframemidle)
-        'daTop.KeyFrames.Add(keyframefinal)
-        'Storyboard.SetTarget(daTop, bg_pontos)
-        'Storyboard.SetTargetProperty(daTop, New PropertyPath(CompositeTransform.TranslateYProperty))
-        'st.Children.Add(daTop)
+        keyframemidle = New EasingDoubleKeyFrame
+        keyframefinal = New EasingDoubleKeyFrame
+        keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
+        keyframefinal.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 10))
+        keyframemidle.Value = player.GetValue(Canvas.TopProperty) - 100
+        'keyframefinal.Value = keyframemidle.Value + 100
+        keyframefinal.Value = 440
+        daTop.KeyFrames.Add(keyframemidle)
+        daTop.KeyFrames.Add(keyframefinal)
+        Storyboard.SetTarget(daTop, player)
+        Storyboard.SetTargetProperty(daTop, New PropertyPath(Canvas.TopProperty))
+        st.Children.Add(daTop)
 
-        'st.SpeedRatio = 20
+        st.SpeedRatio = 20
         'AddHandler st.Completed, AddressOf stop_saltar
 
     End Sub
@@ -246,8 +257,8 @@ Partial Public Class tmovimento3
         End If
         Dim box As New Image
         box.Source = New BitmapImage(New Uri("/CookieHell;component/img/obj.jpg", UriKind.RelativeOrAbsolute))
-        box.Width = 100.0R
-        box.Height = 100.0R
+        box.Width = 75.0R
+        box.Height = 75.0R
         box.SetValue(Canvas.TopProperty, 440.0R)
         box.SetValue(Canvas.LeftProperty, Left)
 
