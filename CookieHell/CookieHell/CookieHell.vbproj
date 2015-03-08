@@ -216,7 +216,25 @@
     <Resource Include="img\bg.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\logo.png" />
+    <Resource Include="img\chocolateCookieBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\chocolateCookieBar_promo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\logo_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\cookie_bited.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\cookie_bag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\star_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\star_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,18 +8,16 @@
     Style="{StaticResource PageStyle}">
 
     <Grid x:Name="LayoutRoot">
-        <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}">
-
-            <StackPanel x:Name="ContentStackPanel">
-
-                <TextBlock x:Name="HeaderText" Style="{StaticResource HeaderTextStyle}" 
-                                   Text="Home"/>
-                <TextBlock x:Name="ContentText" Style="{StaticResource ContentTextStyle}" 
-                                   Text="Home page content"/>
-
-            </StackPanel>
-
-        </ScrollViewer>
+        <StackPanel x:Name="ContentStackPanel">
+        	<Canvas Height="479" RenderTransformOrigin="0.506,0.5">
+        		<Image Source="/CookieHell;component/img/star_1.png" HorizontalAlignment="Right" Width="22" Stretch="Fill" Height="23" Canvas.Left="254" Canvas.Top="69" RenderTransformOrigin="0.519,0.476"/>
+        		<Image Height="70" Width="93" Source="/CookieHell;component/img/chocolateCookieBar.png" Canvas.Left="291" Canvas.Top="140"/>
+        		<Image Height="68" Canvas.Left="73" Canvas.Top="339" Width="105" Source="/CookieHell;component/img/chocolateCookieBar_promo.png"/>
+        		<Image Height="76" Canvas.Left="85" Canvas.Top="185" Width="93" Source="/CookieHell;component/img/cookie_bited.png"/>
+        		<Image Height="83" Canvas.Left="254" Canvas.Top="324" Width="118" Source="/CookieHell;component/img/cookie_bag.png"/>
+        		<Image Height="108" Canvas.Left="19" Canvas.Top="33" Width="181" Source="/CookieHell;component/img/logo_0.png"/>
+        	</Canvas>
+        </StackPanel>
     </Grid>
 
 </navigation:Page>

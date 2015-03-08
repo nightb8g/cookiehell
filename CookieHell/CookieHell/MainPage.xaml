@@ -31,9 +31,9 @@
                 <ImageBrush ImageSource="img/header.png" />
             </Grid.Background>
 
-            <Border x:Name="BrandingBorder" Style="{StaticResource BrandingBorderStyle}" Margin="24,0,0,0" Height="83">
+            <Border x:Name="BrandingBorder" Style="{StaticResource BrandingBorderStyle}" Margin="10,13,0,0" Height="67" Width="203">
                 <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}" Width="181">
-                    <Image Width="180" Source="img/logo.png" Stretch="Fill"/>
+                    <Image Width="183" Source="img/logo_0.png" Stretch="Fill"/>
 
                 </StackPanel>
             </Border>
@@ -42,7 +42,7 @@
                 <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}" Height="43" Margin="0,-5,0,-1" Width="421">
 
                     <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/Home" TargetName="ContentFrame" Content="Home" FontSize="28" FontFamily="Monotype Corsiva" Width="105" HorizontalAlignment="Center" Margin="2,2,2,4" FontWeight="Bold" VerticalAlignment="Center" Height="40"/>
+                                     NavigateUri="/Home" TargetName="ContentFrame" Content="Home" FontSize="28" FontFamily="Monotype Corsiva" Width="105" HorizontalAlignment="Center" Margin="2,2,2,4" VerticalAlignment="Center" Height="40" FontWeight="Bold"/>
 
                     <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
 
