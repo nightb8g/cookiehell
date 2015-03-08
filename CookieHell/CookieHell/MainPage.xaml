@@ -8,57 +8,60 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480" KeyDown="player_KeyDown">
 
-  <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
+    <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
 
-    <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,42,0,0">
-          
+        <Border x:Name="ContentBorder" Margin="0,86,0,0">
+            <Border.Background>
+                <ImageBrush ImageSource="img/bg.png" />
+            </Border.Background>
+            <!--<Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,42,0,0">-->
             <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
                               Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed" VerticalAlignment="Top" Padding="0">
-        <navigation:Frame.UriMapper>
-          <uriMapper:UriMapper>
-            <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
-            <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
-          </uriMapper:UriMapper>
-        </navigation:Frame.UriMapper>
-      </navigation:Frame>
-    </Border>
+                <navigation:Frame.UriMapper>
+                    <uriMapper:UriMapper>
+                        <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
+                        <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
+                    </uriMapper:UriMapper>
+                </navigation:Frame.UriMapper>
+            </navigation:Frame>
+        </Border>
 
-    <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}">
+        <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}" Height="86">
+            <Grid.Background>
+                <ImageBrush ImageSource="img/header.png" />
+            </Grid.Background>
 
-      <Border x:Name="BrandingBorder" Style="{StaticResource BrandingBorderStyle}">
-        <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}">
-            
-          <ContentControl Style="{StaticResource LogoIcon}"/>
-          <TextBlock x:Name="ApplicationNameTextBlock" Style="{StaticResource ApplicationNameStyle}" 
-                               Text="Application Name"/>
+            <Border x:Name="BrandingBorder" Style="{StaticResource BrandingBorderStyle}" Margin="24,0,0,0" Height="83">
+                <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}" Width="181">
+                    <Image Width="180" Source="img/logo.png" Stretch="Fill"/>
 
-        </StackPanel>
-      </Border>
+                </StackPanel>
+            </Border>
 
-      <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}">
-        <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
+            <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}" Margin="0,48,1,1" Width="421" Height="Auto">
+                <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}" Height="43" Margin="0,-5,0,-1" Width="421">
 
-          <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/Home" TargetName="ContentFrame" Content="home"/>
+                    <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Home" TargetName="ContentFrame" Content="Home" FontSize="28" FontFamily="Monotype Corsiva" Width="105" HorizontalAlignment="Center" Margin="2,2,2,4" FontWeight="Bold" VerticalAlignment="Center" Height="40"/>
 
-          <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
+                    <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
 
-          <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
+                    <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
                                      NavigateUri="/tmovimento2" TargetName="ContentFrame" Content="tmovimento2"/>
-          <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
+                    <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
 
-          <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" NavigateUri="/tmovimento3" TargetName="ContentFrame" Content="movimento"/>
+                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" NavigateUri="/tmovimento3" TargetName="ContentFrame" Content="movimento"/>
 
 
-          <Rectangle x:Name="Divider3" Style="{StaticResource DividerStyle}"/>
+                    <Rectangle x:Name="Divider3" Style="{StaticResource DividerStyle}"/>
 
-          <HyperlinkButton x:Name="Link4" Style="{StaticResource LinkStyle}" NavigateUri="/Game" TargetName="ContentFrame" Content="Game"/>
+                    <HyperlinkButton x:Name="Link4" Style="{StaticResource LinkStyle}" NavigateUri="/Game" TargetName="ContentFrame" Content="Game" Margin="2" FontWeight="Bold" FontSize="28" FontFamily="Monotype Corsiva"/>
 
-        </StackPanel>
-      </Border>
+                </StackPanel>
+            </Border>
+
+        </Grid>
 
     </Grid>
-
-  </Grid>
 
 </UserControl>
