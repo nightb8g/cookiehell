@@ -211,8 +211,8 @@ Partial Public Class tmovimento3
 
         Dim daTop As New DoubleAnimationUsingKeyFrames
         Dim daLeft As New DoubleAnimationUsingKeyFrames
-        Dim keyframemidle As New EasingDoubleKeyFrame
-        Dim keyframefinal As New EasingDoubleKeyFrame
+
+        '(-x^2/4)4
 
         'Left
         keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
@@ -227,11 +227,11 @@ Partial Public Class tmovimento3
 
         'Top
         keyframemidle = New EasingDoubleKeyFrame
+        keyframemidle2 = New EasingDoubleKeyFrame
         keyframefinal = New EasingDoubleKeyFrame
         keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
         keyframefinal.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 10))
         keyframemidle.Value = player.GetValue(Canvas.TopProperty) - 100
-        'keyframefinal.Value = keyframemidle.Value + 100
         keyframefinal.Value = 440
         daTop.KeyFrames.Add(keyframemidle)
         daTop.KeyFrames.Add(keyframefinal)
