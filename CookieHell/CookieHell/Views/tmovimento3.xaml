@@ -16,8 +16,8 @@
             <Canvas x:Name="enimigos">
                 <Image Height="100" Width="100" Canvas.Left="1328" Canvas.Top="440" Source="/CookieHell;component/img/cookie.png"/>
             </Canvas>
-            <Canvas x:Name="caixas" d:IsLocked="True">
-                <Image Height="100" Width="100" Source="/CookieHell;component/img/obj.jpg" Canvas.Left="1050" Canvas.Top="439"/>
+            <Canvas x:Name="caixas">
+                <Image Height="50" Width="50" Source="/CookieHell;component/img/obj.jpg" Canvas.Left="1050" Canvas.Top="490"/>
             </Canvas>
             <Image x:Name="player" HorizontalAlignment="Center" VerticalAlignment="Bottom" Source="/CookieHell;component/img/c_anda1.png" Stretch="None" Canvas.Top="440" RenderTransformOrigin="0.5,0.5" Canvas.Left="20" CacheMode="BitmapCache" d:IsLocked="True">
                 <Image.RenderTransform>

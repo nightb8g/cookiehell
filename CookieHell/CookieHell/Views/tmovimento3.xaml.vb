@@ -8,7 +8,7 @@ Partial Public Class tmovimento3
     Dim playerimg1 As New BitmapImage(New Uri("/CookieHell;component/img/c_anda1.png", UriKind.RelativeOrAbsolute))
     Dim playerimg2 As New BitmapImage(New Uri("/CookieHell;component/img/c_anda2.png", UriKind.RelativeOrAbsolute))
     Dim vidasimg As New BitmapImage(New Uri("/CookieHell;component/img/cookie.png", UriKind.RelativeOrAbsolute))
-
+    Dim inUse As Boolean = False
     Dim playervidas As Integer = 3
     Public Sub New()
         InitializeComponent()
@@ -22,25 +22,25 @@ Partial Public Class tmovimento3
 
 
     Public Sub player_KeyDown(sender As Object, e As KeyEventArgs)
-
-        If (e.Key = Key.Right) Then
-            direcao = 1
-            mover(player, 15.0R, direcao)
-        ElseIf (e.Key = Key.Left) Then
-            direcao = -1
-            mover(player, 15.0R, direcao)
-        ElseIf (e.Key = Key.Up) Then
-            saltarlado()
-        ElseIf (e.Key = Key.D) Then 'morre
-            playervidas = 0
-        ElseIf (e.Key = Key.B) Then 'gera nova caixa
-            gerarCaixa() 'random
-            gerarCaixa(100) 'posição definida (100 é coordenada x)
-        ElseIf (e.Key = Key.L) Then 'gera nova caixa
-            Dim lvl2 As New BitmapImage(New Uri("/CookieHell;component/img/level_troll.png", UriKind.RelativeOrAbsolute))
-            mudarbg(lvl2)
+        If Not (inUse) Then
+            If (e.Key = Key.Right) Then
+                direcao = 1
+                mover(player, 15.0R, direcao)
+            ElseIf (e.Key = Key.Left) Then
+                direcao = -1
+                mover(player, 15.0R, direcao)
+            ElseIf (e.Key = Key.Up) Then
+                saltarlado()
+            ElseIf (e.Key = Key.D) Then 'morre
+                playervidas = 0
+            ElseIf (e.Key = Key.B) Then 'gera nova caixa
+                gerarCaixa() 'random
+                gerarCaixa(100) 'posição definida (100 é coordenada x)
+            ElseIf (e.Key = Key.L) Then 'gera nova caixa
+                Dim lvl2 As New BitmapImage(New Uri("/CookieHell;component/img/level_troll.png", UriKind.RelativeOrAbsolute))
+                mudarbg(lvl2)
+            End If
         End If
-
     End Sub
     Private Sub mudarbg(imagem As BitmapImage)
         bgimg.Source = imagem
@@ -50,7 +50,7 @@ Partial Public Class tmovimento3
         bg.Height = 600
     End Sub
 
-    Private Function colisao(ByRef obj1 As Image, ByRef obj2 As Image) As Boolean
+    Private Function colisao(ByRef obj1 As Image, ByRef obj2 As Image) As Integer
 
         Dim obj1Left As Double = obj1.GetValue(Canvas.LeftProperty)
         Dim obj2Left As Double = obj2.GetValue(Canvas.LeftProperty)
@@ -67,17 +67,40 @@ Partial Public Class tmovimento3
             If obj1Top < obj2Bottom And obj2Top < obj1Bottom Then
                 'colidiu em cima/baixo + esquerda/direita
                 ' obj2.Visibility = Windows.Visibility.Collapsed
-                Return True
+                Return 2
             Else
                 'colidiu esquerda+direita
                 'obj2.Visibility = Windows.Visibility.Collapsed
-                Return True
+                Return 1
             End If
         Else
-            Return False
+            Return 0
         End If
     End Function
-   
+    Public Function verificarColisao()
+
+        For Each img As Image In caixas.Children
+            If Not (colisao(player, img) = 0) Then
+                '  MessageBox.Show("colidiu")
+                img.Visibility = Windows.Visibility.Collapsed
+            Else
+                img.Visibility = Windows.Visibility.Visible
+            End If
+        Next
+        For Each img As Image In enimigos.Children
+            If Not (colisao(player, img) = 0) Then
+                MessageBox.Show("colidiu")
+                bg.SetValue(Canvas.LeftProperty, 0.0R)
+                player.SetValue(Canvas.LeftProperty, 20.0R)
+
+                playervidas -= 1
+                tirarVida()
+            End If
+        Next
+
+
+    End Function
+
     Private Sub mover(ByRef obj As Image, distancia As Double, direcao As Double)
         'Background
         Dim bgLeft As Double = bg.GetValue(Canvas.LeftProperty)
@@ -118,23 +141,7 @@ Partial Public Class tmovimento3
             Case 0
                 'saltar
         End Select
-        For Each img As Image In caixas.Children
-            If (colisao(player, img)) Then
-                '  MessageBox.Show("colidiu")
-                img.Visibility = Windows.Visibility.Collapsed
-            Else
-                img.Visibility = Windows.Visibility.Visible
-            End If
-        Next
-        'For Each img As Image In enimigos.Children
-        '    If (colisao(player, img)) Then
-        '          MessageBox.Show("colidiu")
-        '        player.SetValue(Canvas.LeftProperty, 20.0R)
-        '        bg.SetValue(Canvas.LeftProperty, 0.0R)
-        '        playervidas -= 1
-        '        tirarVida()
-        '    End If
-        'Next
+        verificarColisao()
         If (playervidas <= 0) Then
             MessageBox.Show("Game Over")
             NavigationService.Refresh()
@@ -198,54 +205,48 @@ Partial Public Class tmovimento3
     End Sub
 
     Private Sub storyboard_saltar(ByRef st As Storyboard, ByVal direcao As Integer)
-        ' <!--<Storyboard x:Name="saltar">
-        '	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="image">
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="50"/>
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="80"/>
-        '	</DoubleAnimationUsingKeyFrames>
-        '	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image">
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-100"/>
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
-        '	</DoubleAnimationUsingKeyFrames>
-        '</Storyboard> -->
-
-        Dim daTop As New DoubleAnimationUsingKeyFrames
+        AddHandler st.Completed, AddressOf stop_saltar
+        Dim edf1, edf2, edf3 As New EasingDoubleKeyFrame
+        Dim ce As New CubicEase
         Dim daLeft As New DoubleAnimationUsingKeyFrames
+        Dim daTop As New DoubleAnimationUsingKeyFrames
+        Dim objY As New Double
+        objY = player.GetValue(Canvas.TopProperty)
 
-        '(-x^2/4)4
+        edf1.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0))
+        edf1.Value = player.GetValue(Canvas.LeftProperty)
+        daLeft.KeyFrames.Add(edf1)
+        edf2.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 1.6))
+        edf2.Value = edf1.Value + (200 * direcao)
+        daLeft.KeyFrames.Add(edf2)
 
-        'Left
-        keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
-        keyframefinal.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 10))
-        keyframemidle.Value = player.GetValue(Canvas.LeftProperty) + (direcao * 50)
-        keyframefinal.Value = keyframemidle.Value + (direcao * 80)
-        daLeft.KeyFrames.Add(keyframemidle)
-        daLeft.KeyFrames.Add(keyframefinal)
+        edf1 = New EasingDoubleKeyFrame
+        edf2 = New EasingDoubleKeyFrame
+        edf1.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0))
+        edf1.Value = objY
+        daTop.KeyFrames.Add(edf1)
+        edf2.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 0.6))
+        edf2.Value = edf1.Value - 200
+        ce.EasingMode = EasingMode.EaseOut
+        edf2.EasingFunction = ce
+        daTop.KeyFrames.Add(edf2)
+        edf3.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 1.6))
+        edf3.Value = 440.0R
+        daTop.KeyFrames.Add(edf3)
+
         Storyboard.SetTarget(daLeft, player)
-        Storyboard.SetTargetProperty(daLeft, New PropertyPath(Canvas.LeftProperty))
-        st.Children.Add(daLeft)
-
-        'Top
-        keyframemidle = New EasingDoubleKeyFrame
-        keyframemidle2 = New EasingDoubleKeyFrame
-        keyframefinal = New EasingDoubleKeyFrame
-        keyframemidle.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
-        keyframefinal.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 10))
-        keyframemidle.Value = player.GetValue(Canvas.TopProperty) - 100
-        keyframefinal.Value = 440
-        daTop.KeyFrames.Add(keyframemidle)
-        daTop.KeyFrames.Add(keyframefinal)
         Storyboard.SetTarget(daTop, player)
+        Storyboard.SetTargetProperty(daLeft, New PropertyPath(Canvas.LeftProperty))
         Storyboard.SetTargetProperty(daTop, New PropertyPath(Canvas.TopProperty))
+      st.Children.Add(daLeft)
         st.Children.Add(daTop)
-
-        st.SpeedRatio = 20
-        'AddHandler st.Completed, AddressOf stop_saltar
 
     End Sub
     Private Sub stop_saltar(sender As Object, e As EventArgs)
-        'CType(sender, Storyboard).Stop()
-        'sender = Nothing
+
+        TryCast(sender, Storyboard).FillBehavior = FillBehavior.Stop
+        verificarColisao()
+        inUse = False
     End Sub
 
 
@@ -257,13 +258,18 @@ Partial Public Class tmovimento3
         End If
         Dim box As New Image
         box.Source = New BitmapImage(New Uri("/CookieHell;component/img/obj.jpg", UriKind.RelativeOrAbsolute))
-        box.Width = 75.0R
-        box.Height = 75.0R
+        box.Width = 50.0R
+        box.Height = 50.0R
         box.SetValue(Canvas.TopProperty, 440.0R)
         box.SetValue(Canvas.LeftProperty, Left)
 
         For Each obj As Image In caixas.Children
-            If (colisao(box, obj) Or colisao(box, player)) Then
+            If Not (colisao(box, obj) = 0 And colisao(box, player) = 0) Then
+                Return False
+            End If
+        Next
+        For Each img As Image In enimigos.Children
+            If Not (colisao(box, img) = 0) Then
                 Return False
             End If
         Next
@@ -294,6 +300,7 @@ Partial Public Class tmovimento3
         Dim st As New Storyboard
         storyboard_saltar(st, direcao)
         st.Begin()
+        inUse = True
         'bg_pontos.TranslateY = 100
 
     End Sub
