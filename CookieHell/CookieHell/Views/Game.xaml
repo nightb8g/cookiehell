@@ -17,32 +17,37 @@
 		</Storyboard>
 		<Storyboard x:Name="c_jump">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="c_go1">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="8.55"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="17.1"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="30.15"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="40.2"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="49.8"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="56.85"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="64.4"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="67.45"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="72"/>
+				<EasingDoubleKeyFrame KeyTime="0" Value="8.55"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="17.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="30.15"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="40.2"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="49.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="56.85"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="64.4"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="67.45"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="72"/>
+			</DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="c_go1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="281"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="265"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="249"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+       <!--<Storyboard x:Name="jmp">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="c_go1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="191"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="391"/>
 			</DoubleAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="c_go1">
-				<EasingDoubleKeyFrame KeyTime="0" Value="297">
+				<EasingDoubleKeyFrame KeyTime="0" Value="297"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="97">
 					<EasingDoubleKeyFrame.EasingFunction>
-						<CircleEase EasingMode="EaseOut"/>
+						<CubicEase EasingMode="EaseOut"/>
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="281"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="265"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="249"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="233"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="233"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="254.333"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="275.667"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="297"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="297"/>
 			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
+		</Storyboard> -->
 	</navigation:Page.Resources>
 	<Grid x:Name="LayoutRoot">
 		<Canvas>

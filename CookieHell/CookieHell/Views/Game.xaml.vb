@@ -45,60 +45,44 @@
     End Sub
 
     Private Sub playerJumpY(ByRef st As Storyboard)
-        '      <Storyboard x:Name="c_jump">
-        '	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="c_go1">
-        '		<EasingDoubleKeyFrame KeyTime="0" Value="0">
-        '			<EasingDoubleKeyFrame.EasingFunction>
-        '				<CircleEase EasingMode="EaseOut"/>
-        '			</EasingDoubleKeyFrame.EasingFunction>
-        '		</EasingDoubleKeyFrame>
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="8.55"/>
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="17.1"/>
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="30.15"/>
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="40.2"/>
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="49.8"/>
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="56.85"/>
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="64.4"/>
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="67.45"/>
-        '		<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="72"/>
-        '	</DoubleAnimationUsingKeyFrames>
+ 
 
         Dim playerPositionY As Double = c_go1.GetValue(Canvas.TopProperty)
-
+        Dim playerPositionX As Double = c_go1.GetValue(Canvas.LeftProperty)
         Dim daJump As New DoubleAnimationUsingKeyFrames
-        Dim kf(7) As EasingDoubleKeyFrame  'KeyFrame
+        Dim kf(6) As EasingDoubleKeyFrame  'KeyFrame
 
-        For i As Integer = 0 To 7
+        For i As Integer = 0 To 6
             kf(i) = New EasingDoubleKeyFrame()
         Next
 
         '+ é sempre para baixo
         '- é sempre para cima
 
+
         kf(0).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 1))
-        kf(0).Value = playerPositionY - 10.0R '8.55R
+        kf(0).Value = playerPositionY + 17.1R '17.1R
 
         kf(1).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 2))
-        kf(1).Value = kf(0).Value - 20.0R '17.1R
+        kf(1).Value = kf(0).Value + 30.15R
 
-        kf(2).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 3))
-        kf(2).Value = kf(1).Value - 40.0R '30.15R
+        kf(2).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 3)) ' 100R
+        kf(2).Value = playerPositionY + (playerPositionX ^ 2) / 100 - 200
 
-        kf(3).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 4)) ' 100R
-        kf(3).Value = kf(2).Value - 60.0R '150
-
-        kf(4).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
-        kf(4).Value = kf(3).Value + 40.0R '49.8R
+        kf(3).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 4))
+        kf(3).Value = playerPositionY + (playerPositionX ^ 2) / 100 - 200
         '46.25
+        kf(4).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
+        kf(4).Value = playerPositionY + (playerPositionX ^ 2) / 100 - 200
+
         kf(5).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 6))
-        kf(5).Value = kf(4).Value + 20.0R '56.85R
+        kf(5).Value = playerPositionY + (playerPositionX ^ 2) / 100 - 200
 
         kf(6).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 7))
-        kf(6).Value = kf(5).Value + 10.0R '64.4
+        kf(6).Value = playerPositionY + (playerPositionX ^ 2) / 100 - 200
 
-        kf(7).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 9))
-        kf(7).Value = 297.0R '72
-
+        kf(6).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 7))
+        kf(6).Value = playerPositionY + (playerPositionX ^ 2) / 100 - 200
         For Each i As EasingDoubleKeyFrame In kf
             daJump.KeyFrames.Add(i)
         Next
@@ -127,38 +111,33 @@
         Dim playerPositionX As Double = c_go1.GetValue(Canvas.LeftProperty)
 
         Dim daJump3 As New DoubleAnimationUsingKeyFrames
-        Dim kf(8) As EasingDoubleKeyFrame  'KeyFrame
+        Dim kf(6) As EasingDoubleKeyFrame  'KeyFrame
 
-        For i As Integer = 0 To 8
+        For i As Integer = 0 To 6
             kf(i) = New EasingDoubleKeyFrame()
         Next
 
         kf(0).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 1))
-        kf(0).Value = playerPositionX + 5.0R '8.55R
+        kf(0).Value = playerPositionX + 25.0R '8.55R
         'playerPositionLeft = 191
         kf(1).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 2))
-        kf(1).Value = kf(0).Value + 7.0R '17.1R
+        kf(1).Value = kf(0).Value + 25.0R '17.1R
 
         kf(2).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 3))
-        kf(2).Value = kf(1).Value + 15.0R '30.15R
+        kf(2).Value = kf(1).Value + 25.0R '30.15R
 
         kf(3).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 4))
-        kf(3).Value = kf(2).Value + 10.0R '40.2R
+        kf(3).Value = kf(2).Value + 25.0R '40.2R
 
         kf(4).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 5))
-        kf(4).Value = kf(3).Value + 5.0R '49.8R
+        kf(4).Value = kf(3).Value + 25.0R '49.8R
 
         kf(5).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 6))
-        kf(5).Value = kf(4).Value + 10.0R '56.85R
+        kf(5).Value = kf(4).Value + 25.0R '56.85R
 
         kf(6).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 7))
-        kf(6).Value = kf(5).Value + 15.0R '64.4R
+        kf(6).Value = kf(5).Value + 25.0R '64.4R
 
-        kf(7).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 8))
-        kf(7).Value = kf(6).Value + 5.0R '67.45R
-
-        kf(8).KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 9))
-        kf(8).Value = kf(7).Value + 10.0R '80
 
         For Each i As EasingDoubleKeyFrame In kf
             daJump3.KeyFrames.Add(i)
@@ -174,11 +153,67 @@
     End Sub
     Private Sub btn_jump_Click(sender As Object, e As RoutedEventArgs) Handles btn_jump.Click
         Dim st As New Storyboard
-        playerJumpY(st)
-        playerJumpX(st, 1)
-        st.SpeedRatio = 5
+        jmp(st, c_go1)
         st.Begin()
         'playerJumpEnd()
+    End Sub
+
+
+    Public Sub jmp(ByRef st As Storyboard, ByRef player As Image)
+
+        '       <Storyboard x:Name="jmp">
+        '	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="c_go1">
+        '		<EasingDoubleKeyFrame KeyTime="0" Value="191"/>
+        '		<EasingDoubleKeyFrame KeyTime="0:0:1" Value="391"/>
+        '	</DoubleAnimationUsingKeyFrames>
+        '	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="c_go1">
+        '		<EasingDoubleKeyFrame KeyTime="0" Value="297"/>
+        '		<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="97">
+        '			<EasingDoubleKeyFrame.EasingFunction>
+        '				<CubicEase EasingMode="EaseOut"/>
+        '			</EasingDoubleKeyFrame.EasingFunction>
+        '		</EasingDoubleKeyFrame>
+        '		<EasingDoubleKeyFrame KeyTime="0:0:1" Value="297"/>
+        '	</DoubleAnimationUsingKeyFrames>
+        '</Storyboard>
+
+        Dim edf1, edf2, edf3 As New EasingDoubleKeyFrame
+        Dim ce As New CubicEase
+        Dim daLeft As New DoubleAnimationUsingKeyFrames
+        Dim daTop As New DoubleAnimationUsingKeyFrames
+        Dim objY As New Double
+        objY = player.GetValue(Canvas.TopProperty)
+
+        edf1.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0))
+        edf1.Value = player.GetValue(Canvas.LeftProperty)
+        daLeft.KeyFrames.Add(edf1)
+        edf2.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 1.6))
+        edf2.Value = edf1.Value + 200
+        daLeft.KeyFrames.Add(edf2)
+
+
+
+        edf1 = New EasingDoubleKeyFrame
+        edf2 = New EasingDoubleKeyFrame
+        edf1.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0))
+        edf1.Value = objY
+        daTop.KeyFrames.Add(edf1)
+        edf2.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 0.6))
+        edf2.Value = edf1.Value - 200
+        ce.EasingMode = EasingMode.EaseOut
+        edf2.EasingFunction = ce
+        daTop.KeyFrames.Add(edf2)
+        edf3.KeyTime = KeyTime.FromTimeSpan(New TimeSpan(0, 0, 1.6))
+        edf3.Value = 440.0R
+        daTop.KeyFrames.Add(edf3)
+
+        Storyboard.SetTarget(daLeft, player)
+        Storyboard.SetTarget(daTop, player)
+        Storyboard.SetTargetProperty(daLeft, New PropertyPath(Canvas.LeftProperty))
+        Storyboard.SetTargetProperty(daTop, New PropertyPath(Canvas.TopProperty))
+
+        st.Children.Add(daLeft)
+        st.Children.Add(daTop)
     End Sub
 
     Private Sub btn_run_Click(sender As Object, e As RoutedEventArgs) Handles btn_run.Click
