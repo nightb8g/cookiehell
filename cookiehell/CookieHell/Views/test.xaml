@@ -1,0 +1,31 @@
+﻿<navigation:Page x:Class="CookieHell.test" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="test Page">
+    <navigation:Page.Resources>
+        <Storyboard x:Name="Storyboard1"/>
+    </navigation:Page.Resources>
+    <Grid x:Name="LayoutRoot">
+        <StackPanel x:Name="MainStackPanel" HorizontalAlignment="Left" Height="765" VerticalAlignment="Top" Width="1024" Margin="0,0,-384,-285">
+        	<StackPanel x:Name="Cabecalho" Margin="0,0,4,0" Height="100"/>
+        	<StackPanel x:Name="Imagem" HorizontalAlignment="Left" Height="188" VerticalAlignment="Top" Width="1024">
+        		<Grid Margin="69,0,72,0" Height="184">
+        			<Image HorizontalAlignment="Left" Height="173" Margin="11,10,0,0" VerticalAlignment="Top" Width="441" Source="/CookieHell;component/img/cookie_promo.png"/>
+        		</Grid>
+        	</StackPanel>
+        	<StackPanel x:Name="Texto" HorizontalAlignment="Left" Height="183" VerticalAlignment="Top" Width="1020">
+        		<Grid Height="164" Margin="46,0,45,0" VerticalAlignment="Top">
+        			<TextBlock HorizontalAlignment="Left" Height="138" Margin="9,13,0,0" Style="{StaticResource ContentTextStyle}" Text="Texto" VerticalAlignment="Top" Width="310" Foreground="White"/>
+        			<HyperlinkButton Content="HyperlinkButton" Height="20" Margin="0,10,21,0" Style="{StaticResource PageHyperlinkButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="94"/>
+        		</Grid>
+        	</StackPanel>
+        </StackPanel>
+
+    </Grid>
+</navigation:Page>
+
