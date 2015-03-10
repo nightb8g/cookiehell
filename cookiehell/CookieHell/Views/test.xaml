@@ -12,7 +12,7 @@
     </navigation:Page.Resources>
     <Grid x:Name="LayoutRoot">
         <StackPanel x:Name="MainStackPanel" HorizontalAlignment="Left" Height="765" VerticalAlignment="Top" Width="1024" Margin="0,0,-384,-285">
-        	<StackPanel x:Name="Cabecalho" Margin="0,0,4,0" Height="100"/>
+        	<StackPanel x:Name="Cabecalho" Margin="0,0,4,0" Height="72"/>
         	<StackPanel x:Name="Imagem" HorizontalAlignment="Left" Height="188" VerticalAlignment="Top" Width="1024">
         		<Grid Margin="69,0,72,0" Height="184">
         			<Image HorizontalAlignment="Left" Height="173" Margin="11,10,0,0" VerticalAlignment="Top" Width="441" Source="/CookieHell;component/img/cookie_promo.png"/>
