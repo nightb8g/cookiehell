@@ -116,9 +116,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="Views\About.xaml.vb">
-      <DependentUpon>About.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ErrorWindow.xaml.vb">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
@@ -174,10 +171,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Resource>
-    <Page Include="Views\About.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ErrorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -216,7 +209,6 @@
     <Resource Include="img\level_troll.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\bottom.png" />
     <Resource Include="img\header.png" />
   </ItemGroup>
   <ItemGroup>
@@ -233,15 +225,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\cookie_bited.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\cookie_bag.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\star_0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\star_1.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\enemie.png" />
