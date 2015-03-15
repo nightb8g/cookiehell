@@ -11,17 +11,102 @@
         <Storyboard x:Name="Storyboard1"/>
     </navigation:Page.Resources>
     <Grid x:Name="LayoutRoot">
-        <StackPanel x:Name="MainStackPanel" HorizontalAlignment="Left" Height="765" VerticalAlignment="Top" Width="1024" Margin="0,0,-384,-285">
-        	<StackPanel x:Name="Cabecalho" Margin="0,0,4,0" Height="72"/>
-        	<StackPanel x:Name="Imagem" HorizontalAlignment="Left" Height="188" VerticalAlignment="Top" Width="1024">
-        		<Grid Margin="69,0,72,0" Height="184">
-        			<Image HorizontalAlignment="Left" Height="173" Margin="11,10,0,0" VerticalAlignment="Top" Width="441" Source="/CookieHell;component/img/cookie_promo.png"/>
+        <StackPanel x:Name="MainStackPanel" Margin="0,0,0,3">
+        	<StackPanel x:Name="Cabecalho" Margin="0,0,4,0" Height="39"/>
+        	<StackPanel x:Name="Imagem">
+        		<Grid Margin="90,5" Height="261" Background="#FF492807" VerticalAlignment="Center" HorizontalAlignment="Center">
+        			<Grid.RowDefinitions>
+        				<RowDefinition Height="4*"/>
+        				<RowDefinition Height="79*"/>
+        			</Grid.RowDefinitions>
+        			<Border BorderBrush="#9ADEAC71" BorderThickness="1" Margin="10" Background="#CD342104" Grid.RowSpan="2"/>
+        			<TextBlock Margin="50,2,0,0" TextWrapping="Wrap" FontFamily="Arial Black" FontSize="32" FontWeight="Bold" Foreground="#FFC18A39" TextAlignment="Center" LineHeight="1.333" Height="231" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="715">
+        				<Run FontSize="34.667" Text="Prepara-te para embarcar ">
+        					<Run.Foreground>
+        						<SolidColorBrush Color="#FF996924">
+        							<SolidColorBrush.RelativeTransform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.RelativeTransform>
+        							<SolidColorBrush.Transform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.Transform>
+        						</SolidColorBrush>
+        					</Run.Foreground>
+        				</Run>
+        				<LineBreak/>
+        				<Run/>
+        				<Run FontSize="48" Text="Numa ">
+        					<Run.Foreground>
+        						<SolidColorBrush Color="#FFE2B065">
+        							<SolidColorBrush.RelativeTransform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.RelativeTransform>
+        							<SolidColorBrush.Transform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.Transform>
+        						</SolidColorBrush>
+        					</Run.Foreground>
+        				</Run>
+        				<Run FontSize="52" Text="A">
+        					<Run.Foreground>
+        						<SolidColorBrush Color="#FFE2B065">
+        							<SolidColorBrush.RelativeTransform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.RelativeTransform>
+        							<SolidColorBrush.Transform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.Transform>
+        						</SolidColorBrush>
+        					</Run.Foreground>
+        				</Run>
+        				<Run FontWeight="Normal" FontSize="52" Text="ventura">
+        					<Run.Foreground>
+        						<SolidColorBrush Color="#FFE2B065">
+        							<SolidColorBrush.RelativeTransform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.RelativeTransform>
+        							<SolidColorBrush.Transform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.Transform>
+        						</SolidColorBrush>
+        					</Run.Foreground>
+        				</Run>
+        				<Run FontWeight="Normal" FontSize="48" Text=" ">
+        					<Run.Foreground>
+        						<SolidColorBrush Color="#FFE2B065">
+        							<SolidColorBrush.RelativeTransform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.RelativeTransform>
+        							<SolidColorBrush.Transform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.Transform>
+        						</SolidColorBrush>
+        					</Run.Foreground>
+        				</Run>
+        				<Run Text=" "/>
+        			</TextBlock>
+        			<TextBlock x:Name="Crocante" TextWrapping="Wrap" Margin="96,80,96,15" Grid.Row="1" FontFamily="Arial Black" FontSize="124" HorizontalAlignment="Center">
+        				<Run Foreground="#FFFFE0B1" FontWeight="Bold" Text="Crocante"/>
+        			</TextBlock>
         		</Grid>
         	</StackPanel>
-        	<StackPanel x:Name="Texto" HorizontalAlignment="Left" Height="183" VerticalAlignment="Top" Width="1020">
-        		<Grid Height="164" Margin="46,0,45,0" VerticalAlignment="Top">
-        			<TextBlock HorizontalAlignment="Left" Height="138" Margin="9,13,0,0" Style="{StaticResource ContentTextStyle}" Text="Texto" VerticalAlignment="Top" Width="310" Foreground="White"/>
-        			<HyperlinkButton Content="HyperlinkButton" Height="20" Margin="0,10,21,0" Style="{StaticResource PageHyperlinkButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="94"/>
+        	<StackPanel x:Name="Texto" HorizontalAlignment="Left" Height="141" VerticalAlignment="Top" Width="1020">
+        		<Grid Height="132" Margin="46,5,45,5">
+        			<TextBlock Margin="65,10,61,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Arial" Height="112" TextAlignment="Center" HorizontalAlignment="Center">
+        				<LineBreak/>
+        				<Run FontSize="24" Text="CookieHellinc. (c) 2015">
+        					<Run.Foreground>
+        						<SolidColorBrush Color="#FF381904">
+        							<SolidColorBrush.RelativeTransform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.RelativeTransform>
+        							<SolidColorBrush.Transform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.Transform>
+        						</SolidColorBrush>
+        					</Run.Foreground>
+        				</Run>
+        			</TextBlock>
         		</Grid>
         	</StackPanel>
         </StackPanel>
