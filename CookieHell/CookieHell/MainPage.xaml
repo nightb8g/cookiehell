@@ -51,7 +51,7 @@
 
                     <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
 
-                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" NavigateUri="/Game" TargetName="ContentFrame" Content="Game" Margin="2" FontWeight="Bold" FontSize="28" FontFamily="Monotype Corsiva"/>
+                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" NavigateUri="/Game" TargetName="ContentFrame" Content="Instrução" Margin="2" FontWeight="Bold" FontSize="28" FontFamily="Monotype Corsiva"/>
 
                 </StackPanel>
             </Border>

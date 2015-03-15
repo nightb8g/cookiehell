@@ -10,4 +10,12 @@
 
     End Sub
 
+    'Private Sub Replay(sender As Object, e As MouseButtonEventArgs) Handles play.MouseLeftButtonDown, play.MouseRightButtonDown
+    '    If MediaElement.CurrentState = MediaElementState.Stopped Then
+    '        MediaElement.Play()
+    '    Else
+    '        MediaElement.Stop()
+    '        MediaElement.Play()
+    '    End If
+    'End Sub
 End Class
