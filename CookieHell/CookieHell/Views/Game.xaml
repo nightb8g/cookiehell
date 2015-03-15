@@ -8,32 +8,10 @@
            mc:Ignorable="d"
            d:DesignWidth="1024" d:DesignHeight="678"
            Title="Game Page">
-	<navigation:Page.Resources>
-		<Storyboard x:Name="c_move">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="c_go1">
-				<EasingDoubleKeyFrame KeyTime="0" Value="191"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="201"/>
-			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Name="c_jump">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="c_go1">
-				<EasingDoubleKeyFrame KeyTime="0" Value="8.55"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="17.1"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="30.15"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="40.2"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="49.8"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="56.85"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="64.4"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="67.45"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="72"/>
-			</DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="c_go1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="281"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="265"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="249"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-       <!--<Storyboard x:Name="jmp">
+    <navigation:Page.Resources>
+        <Storyboard x:Name="c_move"/>
+        <Storyboard x:Name="c_jump"/>
+        <!--<Storyboard x:Name="jmp">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="c_go1">
 				<EasingDoubleKeyFrame KeyTime="0" Value="191"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="391"/>
@@ -48,26 +26,56 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="297"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard> -->
-	</navigation:Page.Resources>
-	<Grid x:Name="LayoutRoot">
-		<Canvas>
-            <Image x:Name="c_go1" Height="100" Canvas.Left="191" Canvas.Top="297" Width="50" Source="/CookieHell;component/img/c_anda1.png" RenderTransformOrigin="0.5,0.5">
-				<Image.RenderTransform>
-					<CompositeTransform/>
-				</Image.RenderTransform>
-			</Image>
-			<Button x:Name="btn_run" Content="Run" Canvas.Left="500" Canvas.Top="252" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FFD69E25">
-                <Button.RenderTransform>
-                    <CompositeTransform/>
-                </Button.RenderTransform>
-            </Button>
-            <Button x:Name="btn_jump" Content="Jump" Height="22" Canvas.Left="500" Canvas.Top="297" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FFDE2AD6">
-                <Button.RenderTransform>
-					<CompositeTransform/>
-				</Button.RenderTransform>
-			</Button>
-		</Canvas>
-
-	</Grid>
+    </navigation:Page.Resources>
+    <Grid x:Name="LayoutRoot">
+    	<StackPanel Margin="0,0,0,660"/>
+    	<StackPanel VerticalAlignment="Top" Margin="0,18,0,0">
+    		<Canvas Height="435">
+    			<Image x:Name="image" Height="415" Width="629" Canvas.Left="10" Canvas.Top="10" Stretch="Fill" Source="/"/>
+    			<HyperlinkButton x:Name="hyperlinkButton" Content="Movimento" Canvas.Left="852" Canvas.Top="10" Height="33" Width="162" FontSize="21.333" Background="#00422407" Foreground="#FF382106">
+    				<i:Interaction.Triggers>
+    					<i:EventTrigger EventName="Click" SourceName="hyperlinkButton" SourceObject="{Binding ElementName=hyperlinkButton}">
+    						<ei:ChangePropertyAction TargetName="image" PropertyName="Source" TargetObject="{Binding ElementName=image}">
+    							<ei:ChangePropertyAction.Ease>
+    								<CircleEase EasingMode="EaseIn"/>
+    							</ei:ChangePropertyAction.Ease>
+    							<ei:ChangePropertyAction.Value>
+    								<ImageSource>/CookieHell;component/img/instrucoes1.png</ImageSource>
+    							</ei:ChangePropertyAction.Value>
+    						</ei:ChangePropertyAction>
+    					</i:EventTrigger>
+    				</i:Interaction.Triggers>
+    			</HyperlinkButton>
+    			<HyperlinkButton x:Name="hyperlinkButton_Copy" Content="Objetivo" Canvas.Left="852" Canvas.Top="62" Height="33" Width="162" FontSize="21.333" Background="#00422407" Foreground="#FF382106">
+    				<i:Interaction.Triggers>
+    					<i:EventTrigger EventName="Click" SourceName="hyperlinkButton_Copy" SourceObject="{Binding ElementName=hyperlinkButton_Copy}">
+    						<ei:ChangePropertyAction TargetName="image" PropertyName="Source" TargetObject="{Binding ElementName=image}">
+    							<ei:ChangePropertyAction.Ease>
+    								<CircleEase EasingMode="EaseIn"/>
+    							</ei:ChangePropertyAction.Ease>
+    							<ei:ChangePropertyAction.Value>
+    								<ImageSource>/CookieHell;component/img/instrucoes2.png</ImageSource>
+    							</ei:ChangePropertyAction.Value>
+    						</ei:ChangePropertyAction>
+    					</i:EventTrigger>
+    				</i:Interaction.Triggers>
+    			</HyperlinkButton>
+    			<HyperlinkButton x:Name="hyperlinkButton_Copy1" Content="Creditos" Canvas.Left="852" Canvas.Top="114" Height="33" Width="162" FontSize="21.333" Background="#00422407" Foreground="#FF382106">
+    				<i:Interaction.Triggers>
+    					<i:EventTrigger EventName="MouseLeftButtonDown" SourceName="hyperlinkButton_Copy1" SourceObject="{Binding ElementName=hyperlinkButton_Copy1}">
+    						<ei:ChangePropertyAction TargetName="image" PropertyName="Source" TargetObject="{Binding ElementName=image}">
+    							<ei:ChangePropertyAction.Ease>
+    								<CircleEase EasingMode="EaseIn"/>
+    							</ei:ChangePropertyAction.Ease>
+    							<ei:ChangePropertyAction.Value>
+    								<ImageSource>/CookieHell;component/img/instrucoes1.png</ImageSource>
+    							</ei:ChangePropertyAction.Value>
+    						</ei:ChangePropertyAction>
+    					</i:EventTrigger>
+    				</i:Interaction.Triggers>
+    			</HyperlinkButton>
+    		</Canvas>
+    	</StackPanel>
+    </Grid>
 </navigation:Page>
 
