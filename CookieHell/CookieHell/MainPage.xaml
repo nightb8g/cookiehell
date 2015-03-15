@@ -42,20 +42,16 @@
                 <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}" Height="43" Margin="0,-5,0,-1" Width="421">
 
                     <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/Home" TargetName="ContentFrame" Content="Home" FontSize="28" FontFamily="Monotype Corsiva" Width="105" HorizontalAlignment="Center" Margin="2,2,2,4" VerticalAlignment="Center" Height="40" FontWeight="Bold"/>
+                                     NavigateUri="/test" TargetName="ContentFrame" Content="Home" FontSize="28" FontFamily="Monotype Corsiva" Width="105" HorizontalAlignment="Center" Margin="2,2,2,4" VerticalAlignment="Center" Height="40" FontWeight="Bold"/>
 
                     <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
 
-                    <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/test" TargetName="ContentFrame" Content="Main" FontFamily="Monotype Corsiva" FontSize="28" FontWeight="Bold"/>
+                    <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" NavigateUri="/tmovimento3" TargetName="ContentFrame" Content="Jogo" FontFamily="Monotype Corsiva" FontSize="28" FontWeight="Bold"/>
+
+
                     <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
 
-                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" NavigateUri="/tmovimento3" TargetName="ContentFrame" Content="Jogo" FontFamily="Monotype Corsiva" FontSize="28" FontWeight="Bold"/>
-
-
-                    <Rectangle x:Name="Divider3" Style="{StaticResource DividerStyle}"/>
-
-                    <HyperlinkButton x:Name="Link4" Style="{StaticResource LinkStyle}" NavigateUri="/Game" TargetName="ContentFrame" Content="Game" Margin="2" FontWeight="Bold" FontSize="28" FontFamily="Monotype Corsiva"/>
+                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" NavigateUri="/Game" TargetName="ContentFrame" Content="Game" Margin="2" FontWeight="Bold" FontSize="28" FontFamily="Monotype Corsiva"/>
 
                 </StackPanel>
             </Border>

@@ -9,14 +9,148 @@
 
     <Grid x:Name="LayoutRoot">
         <StackPanel x:Name="ContentStackPanel">
-        	<Canvas Height="479" RenderTransformOrigin="0.506,0.5">
-        		<Image Source="/CookieHell;component/img/star_1.png" HorizontalAlignment="Right" Width="22" Stretch="Fill" Height="23" Canvas.Left="254" Canvas.Top="69" RenderTransformOrigin="0.519,0.476"/>
-        		<Image Height="70" Width="93" Source="/CookieHell;component/img/chocolateCookieBar.png" Canvas.Left="291" Canvas.Top="140"/>
-        		<Image Height="68" Canvas.Left="73" Canvas.Top="339" Width="105" Source="/CookieHell;component/img/chocolateCookieBar_promo.png"/>
-        		<Image Height="76" Canvas.Left="85" Canvas.Top="185" Width="93" Source="/CookieHell;component/img/cookie_bited.png"/>
-        		<Image Height="83" Canvas.Left="254" Canvas.Top="324" Width="118" Source="/CookieHell;component/img/cookie_bag.png"/>
-        		<Image Height="108" Canvas.Left="19" Canvas.Top="33" Width="181" Source="/CookieHell;component/img/logo_0.png"/>
-        	</Canvas>
+        	<StackPanel x:Name="Cabecalho" Margin="0,0,4,0" Height="39"/>
+        	<StackPanel x:Name="Imagem">
+        		<Grid Margin="90,5" Height="261" Background="#FF492807" VerticalAlignment="Center" HorizontalAlignment="Center">
+        			<Grid.RowDefinitions>
+        				<RowDefinition Height="4*"/>
+        				<RowDefinition Height="79*"/>
+        			</Grid.RowDefinitions>
+        			<Border BorderBrush="#9ADEAC71" BorderThickness="1" Margin="10" Background="#CD342104" Grid.RowSpan="2"/>
+        			<TextBlock Margin="50,2,0,0" TextWrapping="Wrap" FontFamily="Arial Black" FontSize="32" FontWeight="Bold" Foreground="#FFC18A39" TextAlignment="Center" LineHeight="1.333" Height="231" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="715">
+        				<Run FontSize="34.667" Text="Prepara-te para embarcar ">
+        					<Run.Foreground>
+        						<SolidColorBrush Color="#FF996924">
+        							<SolidColorBrush.RelativeTransform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.RelativeTransform>
+        							<SolidColorBrush.Transform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.Transform>
+        						</SolidColorBrush>
+        					</Run.Foreground>
+        				</Run>
+        				<LineBreak/>
+        				<Run/>
+        				<Run FontSize="48" Text="Numa ">
+        					<Run.Foreground>
+        						<SolidColorBrush Color="#FFE2B065">
+        							<SolidColorBrush.RelativeTransform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.RelativeTransform>
+        							<SolidColorBrush.Transform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.Transform>
+        						</SolidColorBrush>
+        					</Run.Foreground>
+        				</Run>
+        				<Run FontSize="52" Text="A">
+        					<Run.Foreground>
+        						<SolidColorBrush Color="#FFE2B065">
+        							<SolidColorBrush.RelativeTransform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.RelativeTransform>
+        							<SolidColorBrush.Transform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.Transform>
+        						</SolidColorBrush>
+        					</Run.Foreground>
+        				</Run>
+        				<Run FontWeight="Normal" FontSize="52" Text="ventura">
+        					<Run.Foreground>
+        						<SolidColorBrush Color="#FFE2B065">
+        							<SolidColorBrush.RelativeTransform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.RelativeTransform>
+        							<SolidColorBrush.Transform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.Transform>
+        						</SolidColorBrush>
+        					</Run.Foreground>
+        				</Run>
+        				<Run FontWeight="Normal" FontSize="48" Text=" ">
+        					<Run.Foreground>
+        						<SolidColorBrush Color="#FFE2B065">
+        							<SolidColorBrush.RelativeTransform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.RelativeTransform>
+        							<SolidColorBrush.Transform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.Transform>
+        						</SolidColorBrush>
+        					</Run.Foreground>
+        				</Run>
+        				<Run Text=" "/>
+        			</TextBlock>
+        			<TextBlock x:Name="Crocante" TextWrapping="Wrap" Margin="96,80,96,15" Grid.Row="1" FontFamily="Arial Black" FontSize="124" HorizontalAlignment="Center">
+        				<Run Foreground="#FFFFE0B1" FontWeight="Bold" Text="Crocante"/>
+        			</TextBlock>
+        		</Grid>
+        	</StackPanel>
+        	<StackPanel x:Name="Texto" HorizontalAlignment="Center" Height="248" VerticalAlignment="Center" Width="1020" Margin="2,0">
+        		<Grid Height="132" Margin="0,5" VerticalAlignment="Bottom">
+        			<TextBlock Margin="345,11,373,9" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Arial" Height="112" TextAlignment="Center">
+        				<LineBreak/>
+        				<Run FontSize="24" Text="CookieHellinc. (c) 2015">
+        					<Run.Foreground>
+        						<SolidColorBrush Color="#FF381904">
+        							<SolidColorBrush.RelativeTransform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.RelativeTransform>
+        							<SolidColorBrush.Transform>
+        								<MatrixTransform Matrix="Identity"/>
+        							</SolidColorBrush.Transform>
+        						</SolidColorBrush>
+        					</Run.Foreground>
+        				</Run>
+        			</TextBlock>
+        			<Canvas x:Name="desastres" HorizontalAlignment="Right" Height="132" Width="383" VerticalAlignment="Bottom" Margin="0,0,-2,0">
+        				<Image Height="122" Canvas.Left="217" Width="166" Source="/CookieHell;component/img/mob.png"/>
+        				<Image Height="107.882" Canvas.Left="24" Canvas.Top="12.059" Width="133" Source="/CookieHell;component/img/grabIt.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+        					<Image.RenderTransform>
+        						<CompositeTransform SkewY="6.71" TranslateY="5.882"/>
+        					</Image.RenderTransform>
+        				</Image>
+        				<Path Data="M672.667,12.6667 C667.667,14 664.667,15.333 663.667,17.9997 C662.667,20.6664 662.333,20.6664 662.667,22.9997 C663,25.333 664,26.9997 665,28.6664 C666,30.3331 666.333,32.666 670,32.9993 C673.667,33.3326 674,33.3326 676.333,33.3326 C678.666,33.3326 677.333,36.3329 680.667,32.9996 C684,29.6663 686.333,25.6663 686.667,23.333 C687,20.9997 687,22.333 687,20.6663 C687,18.9996 689.667,21.333 687,17.9997 C684.333,14.6664 680.667,11.6664 680.667,11.6664 L673,11.3327" Fill="#FFF4F4F5" Height="24.24" Canvas.Left="278.042" Stretch="Fill" Stroke="#80000000" Canvas.Top="6.833" UseLayoutRounding="False" Width="26.643"/>
+        				<Path Data="M662.667,5.66667 L659.667,5.66667 C659.667,5.66667 656,7.66634 655,7.66634 C654,7.66634 651,8.33257 651,8.33257 L649,11.3328 L649.333,12.9998 z" Fill="#FFF4F4F5" Height="8.333" Canvas.Left="264.5" Stretch="Fill" Stroke="#A8000000" Canvas.Top="1.167" UseLayoutRounding="False" Width="14.667"/>
+        				<Path Data="M674.333,21.3336 C674.333,21.3336 673.333,23.0011 674,24.0014 C674.667,25.0017 675,25.0017 675,25.0017 L678.334,24.3348 L678.334,21.3339 L675.667,21.3337 z" Fill="Black" Height="4.667" Canvas.Left="280.938" Stretch="Fill" Stroke="#FF270404" Canvas.Top="14.5" UseLayoutRounding="False" Width="5.562"/>
+        			</Canvas>
+        			<Canvas x:Name="bolacha" HorizontalAlignment="Left" Height="132" VerticalAlignment="Top" Width="136" RenderTransformOrigin="0.5,0.5" Margin="7,4,0,-4">
+        				<Canvas.RenderTransform>
+        					<CompositeTransform ScaleY="-1"/>
+        				</Canvas.RenderTransform>
+        				<Image Height="112" Width="107" Canvas.Left="8" Canvas.Top="10" Source="/CookieHell;component/img/c_anda2.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Stretch="None">
+        					<Image.RenderTransform>
+        						<CompositeTransform Rotation="196.765"/>
+        					</Image.RenderTransform>
+        				</Image>
+        				<Path Data="M7.5,109.5 C13.5,114.5 23,113 23,113 C23,113 29.5,105.5 29,103.5 C28.5,101.5 32.0005,99.5 27.0004,97.5 C22.0003,95.5 21.0001,94 18.0001,94 C15.0001,94 10.5,94.5 9.50002,96 C8.50001,97.5 4.99998,107 4.99998,107 z" Fill="#FFF4F4F5" Height="17.211" Canvas.Left="27.5" Stretch="Fill" Stroke="#42000000" Canvas.Top="79" UseLayoutRounding="False" Width="16.729"/>
+        				<Path Data="M7.5,109.5 C13.5,114.5 23,113 23,113 C23,113 29.5,105.5 29,103.5 C28.5,101.5 32.0005,99.5 27.0004,97.5 C22.0003,95.5 21.0001,94 18.0001,94 C15.0001,94 10.5,94.5 9.50002,96 C8.50001,97.5 4.99998,107 4.99998,107 z" Fill="#FFF4F4F5" Height="26.711" Canvas.Left="38.229" Stretch="Fill" Stroke="#4D000000" Canvas.Top="89.211" UseLayoutRounding="False" Width="29.229"/>
+        				<Path Data="M47,65 C49,72 47.5,71.5 53,75 C58.5,78.5 63.5,79.5 66,80 C68.5,80.5 67.5,81.5 70.5,80.5 C73.5,79.5 77,76.9999 77.5,75.4999 C78,73.9999 79.5,71.9999 79.5,70.5 C79.5,69 62,59.5 62,59.5 L55,63.5002 L48,63.0002 z" Fill="#FF0E0402" Height="47.87" Canvas.Left="48.694" Stretch="Fill" Stroke="#FF471C10" Canvas.Top="42.669" UseLayoutRounding="False" Width="29.163" RenderTransformOrigin="0.5,0.5">
+        					<Path.RenderTransform>
+        						<CompositeTransform Rotation="-31.993" TranslateX="-3.2475059729066942" TranslateY="0.93099249563362818"/>
+        					</Path.RenderTransform>
+        				</Path>
+        				<Path Data="M51.5,106 L49,104.5 L48.5,102 L52.5,101.5 L54.5,104 z" Fill="#FF471C10" Height="9" Canvas.Left="53.5" Stretch="Fill" Stroke="#FF471C10" Canvas.Top="102.422" UseLayoutRounding="False" Width="9"/>
+        				<Path Data="M51.5,106 L49,104.5 L48.5,102 L52.5,101.5 L54.5,104 z" Fill="#FF471C10" Height="5.5" Canvas.Left="35.729" Stretch="Fill" Stroke="#FF471C10" Canvas.Top="86.711" UseLayoutRounding="False" Width="7" RenderTransformOrigin="0.396,0.416"/>
+        				<Path Data="M74.6667,109 C74.6667,110.333 75.333,112.333 75.333,112.333 L78.0012,114 L80.0021,113.333 L81.336,111 L78.3348,111.333 z" Fill="#FFF4F4F5" Height="6" Canvas.Left="71.837" Stretch="Fill" Stroke="#42000000" Canvas.Top="104.661" UseLayoutRounding="False" Width="7.666" RenderTransformOrigin="0.5,0.5">
+        					<Path.RenderTransform>
+        						<CompositeTransform Rotation="-60.102"/>
+        					</Path.RenderTransform>
+        				</Path>
+        				<Path Data="M75,112 L77.6667,114.333 L78.9995,114.333 C78.9995,114.333 80.3327,113.333 80.3327,112.333 C80.3327,111.333 79.9997,110 79.9997,110 L77.9998,109 L77.6665,111.667 z" Fill="#FFF4F4F5" Height="4.666" Canvas.Left="70.127" Stretch="Fill" Stroke="#42000000" Canvas.Top="113.92" UseLayoutRounding="False" Width="11" RenderTransformOrigin="0.5,0.5">
+        					<Path.RenderTransform>
+        						<CompositeTransform Rotation="22.354"/>
+        					</Path.RenderTransform>
+        				</Path>
+        				<Path Data="M76.3333,100.667 L77.0003,103.333 C77.0003,103.333 78.667,105 78.667,105 C79.6665,103.333 78.667,102.333 78.667,102.333 z" Fill="#FFF4F4F5" Height="8.229" Canvas.Left="64.455" Stretch="Fill" Stroke="#42000000" Canvas.Top="115.384" UseLayoutRounding="False" Width="5.466" RenderTransformOrigin="0.5,0.5">
+        					<Path.RenderTransform>
+        						<CompositeTransform Rotation="17.148"/>
+        					</Path.RenderTransform>
+        				</Path>
+        			</Canvas>
+        		</Grid>
+        	</StackPanel>
         </StackPanel>
     </Grid>
 
