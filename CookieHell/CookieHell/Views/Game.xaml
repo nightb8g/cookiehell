@@ -6,7 +6,7 @@
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="CookieHell.Game"
            mc:Ignorable="d"
-           d:DesignWidth="640" d:DesignHeight="480"
+           d:DesignWidth="1024" d:DesignHeight="678"
            Title="Game Page">
 	<navigation:Page.Resources>
 		<Storyboard x:Name="c_move">

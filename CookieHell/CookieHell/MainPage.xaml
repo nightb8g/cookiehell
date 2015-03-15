@@ -6,7 +6,7 @@
     xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
     xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480" KeyDown="player_KeyDown">
+    mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="768" KeyDown="player_KeyDown">
 
     <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
 
@@ -47,10 +47,10 @@
                     <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
 
                     <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/test" TargetName="ContentFrame" Content="Main"/>
+                                     NavigateUri="/test" TargetName="ContentFrame" Content="Main" FontFamily="Monotype Corsiva" FontSize="28" FontWeight="Bold"/>
                     <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
 
-                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" NavigateUri="/tmovimento3" TargetName="ContentFrame" Content="Jogo" FontFamily="Monotype Corsiva" FontSize="28"/>
+                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" NavigateUri="/tmovimento3" TargetName="ContentFrame" Content="Jogo" FontFamily="Monotype Corsiva" FontSize="28" FontWeight="Bold"/>
 
 
                     <Rectangle x:Name="Divider3" Style="{StaticResource DividerStyle}"/>
