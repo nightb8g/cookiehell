@@ -44,19 +44,7 @@
         						</SolidColorBrush>
         					</Run.Foreground>
         				</Run>
-        				<Run FontSize="52" Text="A">
-        					<Run.Foreground>
-        						<SolidColorBrush Color="#FFE2B065">
-        							<SolidColorBrush.RelativeTransform>
-        								<MatrixTransform Matrix="Identity"/>
-        							</SolidColorBrush.RelativeTransform>
-        							<SolidColorBrush.Transform>
-        								<MatrixTransform Matrix="Identity"/>
-        							</SolidColorBrush.Transform>
-        						</SolidColorBrush>
-        					</Run.Foreground>
-        				</Run>
-        				<Run FontWeight="Normal" FontSize="52" Text="ventura">
+        				<Run FontWeight="Normal" FontSize="52" Text="Aventura">
         					<Run.Foreground>
         						<SolidColorBrush Color="#FFE2B065">
         							<SolidColorBrush.RelativeTransform>
