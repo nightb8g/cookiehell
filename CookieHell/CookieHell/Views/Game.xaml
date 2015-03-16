@@ -28,92 +28,92 @@
 		</Storyboard> -->
     </navigation:Page.Resources>
     <Grid x:Name="LayoutRoot" Height="678" VerticalAlignment="Top">
-    	<StackPanel Margin="0,33,0,232" HorizontalAlignment="Center" Width="1024">
-    		<Canvas Height="414">
-    			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Clica em &quot;Movimento&quot; ou &quot;Salto&quot; para vizualizar as instruções." VerticalAlignment="Top" Canvas.Left="142" Canvas.Top="134" FontSize="26.667" Width="576" Height="164" TextAlignment="Center" Foreground="#FF3A2206"/>
-    			<Path Data="M1008,4.5 L1005,45 L832.5,42 L856.5,4.5 z" Fill="#FFA86731" Height="41.5" Canvas.Left="852" Stretch="Fill" Stroke="#00FFCA7E" Canvas.Top="62" UseLayoutRounding="False" Width="162"/>
-    			<Image x:Name="image" Height="402" Width="691" Canvas.Left="104" Canvas.Top="10" Stretch="Fill" Source="/"/>
-    			<Path Data="M1008,4.5 L1005,45 L832.5,42 L856.5,4.5 z" Fill="#FFA86731" Height="41.5" Canvas.Left="828.5" Stretch="Fill" Stroke="#00FFCA7E" Canvas.Top="10" UseLayoutRounding="False" Width="185.5"/>
-    			<HyperlinkButton x:Name="hyperlinkButton" Canvas.Left="852" Canvas.Top="10" Height="33" Width="153" FontSize="24" Background="#00422407" Foreground="#FF3A2206" Content="Movimento" FontWeight="Bold">
-    				<i:Interaction.Triggers>
-    					<i:EventTrigger EventName="Click" SourceName="hyperlinkButton" SourceObject="{Binding ElementName=hyperlinkButton}">
-    						<ei:ChangePropertyAction TargetName="image" PropertyName="Source" TargetObject="{Binding ElementName=image}">
-    							<ei:ChangePropertyAction.Ease>
-    								<CircleEase EasingMode="EaseIn"/>
-    							</ei:ChangePropertyAction.Ease>
-    							<ei:ChangePropertyAction.Value>
-    								<ImageSource>/CookieHell;component/img/instrucoes1.png</ImageSource>
-    							</ei:ChangePropertyAction.Value>
-    						</ei:ChangePropertyAction>
-    					</i:EventTrigger>
-    				</i:Interaction.Triggers>
-    			</HyperlinkButton>
-    			<HyperlinkButton x:Name="hyperlinkButton_Copy" Content=" Objetivo" Canvas.Left="878" Canvas.Top="62" Height="33" Width="127" FontSize="24" Background="#00422407" Foreground="#FF382106" FontWeight="Bold">
-    				<i:Interaction.Triggers>
-    					<i:EventTrigger EventName="Click" SourceName="hyperlinkButton_Copy" SourceObject="{Binding ElementName=hyperlinkButton_Copy}">
-    						<ei:ChangePropertyAction TargetName="image" PropertyName="Source" TargetObject="{Binding ElementName=image}">
-    							<ei:ChangePropertyAction.Ease>
-    								<CircleEase EasingMode="EaseIn"/>
-    							</ei:ChangePropertyAction.Ease>
-    							<ei:ChangePropertyAction.Value>
-    								<ImageSource>/CookieHell;component/img/instrucoes2.png</ImageSource>
-    							</ei:ChangePropertyAction.Value>
-    						</ei:ChangePropertyAction>
-    					</i:EventTrigger>
-    				</i:Interaction.Triggers>
-    			</HyperlinkButton>
-    			<Image Height="113" Canvas.Left="28" Canvas.Top="104" Width="74" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-    				<Image.RenderTransform>
-    					<CompositeTransform Rotation="-9.527"/>
-    				</Image.RenderTransform>
-    			</Image>
-    			<Image Height="113" Canvas.Left="780" Canvas.Top="280" Width="74" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-    				<Image.RenderTransform>
-    					<CompositeTransform Rotation="15.123"/>
-    				</Image.RenderTransform>
-    			</Image>
-    			<Image Height="30.634" Canvas.Left="834.776" Canvas.Top="160.112" Width="30.721" Source="/CookieHell;component/img/mob.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-    				<Image.RenderTransform>
-    					<CompositeTransform Rotation="4.958" ScaleX="-1"/>
-    				</Image.RenderTransform>
-    			</Image>
-    			<Image Height="25.842" Canvas.Left="901.741" Canvas.Top="175.016" Width="20.495" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-    				<Image.RenderTransform>
-    					<CompositeTransform Rotation="19.004" ScaleX="-1"/>
-    				</Image.RenderTransform>
-    			</Image>
-    			<Image Height="55.364" Canvas.Left="941.826" Canvas.Top="279.891" Width="39.318" Source="/CookieHell;component/img/c_anda2.png" RenderTransformOrigin="0.405,0.424" UseLayoutRounding="False" d:LayoutRounding="Auto">
-    				<Image.RenderTransform>
-    					<CompositeTransform Rotation="9.052" TranslateX="0.219" TranslateY="-0.207"/>
-    				</Image.RenderTransform>
-    			</Image>
-    			<Image Height="29.696" Canvas.Left="877.16" Canvas.Top="201.077" Width="17.682" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-    				<Image.RenderTransform>
-    					<CompositeTransform Rotation="11.042" ScaleX="-1"/>
-    				</Image.RenderTransform>
-    			</Image>
-    			<Image Height="31.794" Canvas.Left="16.757" Canvas.Top="377.535" Width="27.494" Source="/CookieHell;component/img/c_anda2.png" RenderTransformOrigin="0.405,0.424" UseLayoutRounding="False" d:LayoutRounding="Auto">
-    				<Image.RenderTransform>
-    					<CompositeTransform Rotation="9.052" TranslateX="0.219" TranslateY="-0.207" ScaleX="-1"/>
-    				</Image.RenderTransform>
-    			</Image>
-    			<Image Height="38.88" Canvas.Left="900.669" Canvas.Top="233.497" Width="27.639" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-    				<Image.RenderTransform>
-    					<CompositeTransform Rotation="19.004" ScaleX="-1"/>
-    				</Image.RenderTransform>
-    			</Image>
-    			<Image Height="25.842" Canvas.Left="55.394" Canvas.Top="357.598" Width="18.921" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-    				<Image.RenderTransform>
-    					<CompositeTransform Rotation="-6.019"/>
-    				</Image.RenderTransform>
-    			</Image>
-    			<Image Height="19.196" Canvas.Left="76.253" Canvas.Top="328.421" Width="15.203" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-    				<Image.RenderTransform>
-    					<CompositeTransform Rotation="-6.019"/>
-    				</Image.RenderTransform>
-    			</Image>
+        <StackPanel Margin="0,33,0,232" HorizontalAlignment="Center" Width="1024">
+            <Canvas Height="414">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Clica em &quot;Movimento&quot; ou &quot;Salto&quot; para vizualizar as instruções." VerticalAlignment="Top" Canvas.Left="142" Canvas.Top="134" FontSize="26.667" Width="576" Height="164" TextAlignment="Center" Foreground="#FF3A2206"/>
+                <Path Data="M1008,4.5 L1005,45 L832.5,42 L856.5,4.5 z" Fill="#FFA86731" Height="41.5" Canvas.Left="852" Stretch="Fill" Stroke="#00FFCA7E" Canvas.Top="62" UseLayoutRounding="False" Width="162"/>
+                <Image x:Name="image" Height="412" Width="691" Canvas.Left="104" Source="/"/>
+                <Path Data="M1008,4.5 L1005,45 L832.5,42 L856.5,4.5 z" Fill="#FFA86731" Height="41.5" Canvas.Left="828.5" Stretch="Fill" Stroke="#00FFCA7E" Canvas.Top="10" UseLayoutRounding="False" Width="185.5"/>
+                <HyperlinkButton x:Name="hyperlinkButton" Canvas.Left="852" Canvas.Top="10" Height="33" Width="153" FontSize="24" Background="#00422407" Foreground="#FF3A2206" Content="Movimento" FontWeight="Bold">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click" SourceName="hyperlinkButton" SourceObject="{Binding ElementName=hyperlinkButton}">
+                            <ei:ChangePropertyAction TargetName="image" PropertyName="Source" TargetObject="{Binding ElementName=image}">
+                                <ei:ChangePropertyAction.Ease>
+                                    <CircleEase EasingMode="EaseIn"/>
+                                </ei:ChangePropertyAction.Ease>
+                                <ei:ChangePropertyAction.Value>
+                                    <ImageSource>/CookieHell;component/img/instrucoes1.png</ImageSource>
+                                </ei:ChangePropertyAction.Value>
+                            </ei:ChangePropertyAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </HyperlinkButton>
+                <HyperlinkButton x:Name="hyperlinkButton_Copy" Content=" Objetivo" Canvas.Left="878" Canvas.Top="62" Height="33" Width="127" FontSize="24" Background="#00422407" Foreground="#FF382106" FontWeight="Bold">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click" SourceName="hyperlinkButton_Copy" SourceObject="{Binding ElementName=hyperlinkButton_Copy}">
+                            <ei:ChangePropertyAction TargetName="image" PropertyName="Source" TargetObject="{Binding ElementName=image}">
+                                <ei:ChangePropertyAction.Ease>
+                                    <CircleEase EasingMode="EaseIn"/>
+                                </ei:ChangePropertyAction.Ease>
+                                <ei:ChangePropertyAction.Value>
+                                    <ImageSource>/CookieHell;component/img/instrucoes2.png</ImageSource>
+                                </ei:ChangePropertyAction.Value>
+                            </ei:ChangePropertyAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </HyperlinkButton>
+                <Image Height="113" Canvas.Left="56.5" Canvas.Top="104" Width="74" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Image.RenderTransform>
+                        <CompositeTransform Rotation="-9.527"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="113" Canvas.Left="750" Canvas.Top="265" Width="74" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Image.RenderTransform>
+                        <CompositeTransform Rotation="15.123"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="30.634" Canvas.Left="834.776" Canvas.Top="160.112" Width="30.721" Source="/CookieHell;component/img/mob.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Image.RenderTransform>
+                        <CompositeTransform Rotation="4.958" ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="25.842" Canvas.Left="901.741" Canvas.Top="175.016" Width="20.495" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Image.RenderTransform>
+                        <CompositeTransform Rotation="19.004" ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="55.364" Canvas.Left="941.826" Canvas.Top="279.891" Width="39.318" Source="/CookieHell;component/img/c_anda2.png" RenderTransformOrigin="0.405,0.424" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Image.RenderTransform>
+                        <CompositeTransform Rotation="9.052" TranslateX="0.219" TranslateY="-0.207"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="29.696" Canvas.Left="877.16" Canvas.Top="201.077" Width="17.682" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Image.RenderTransform>
+                        <CompositeTransform Rotation="11.042" ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="31.794" Canvas.Left="16.757" Canvas.Top="377.535" Width="27.494" Source="/CookieHell;component/img/c_anda2.png" RenderTransformOrigin="0.405,0.424" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Image.RenderTransform>
+                        <CompositeTransform Rotation="9.052" TranslateX="0.219" TranslateY="-0.207" ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="38.88" Canvas.Left="900.669" Canvas.Top="233.497" Width="27.639" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Image.RenderTransform>
+                        <CompositeTransform Rotation="19.004" ScaleX="-1"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="25.842" Canvas.Left="55.394" Canvas.Top="357.598" Width="18.921" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Image.RenderTransform>
+                        <CompositeTransform Rotation="-6.019"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Height="19.196" Canvas.Left="76.253" Canvas.Top="328.421" Width="15.203" Source="/CookieHell;component/img/enemie.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Image.RenderTransform>
+                        <CompositeTransform Rotation="-6.019"/>
+                    </Image.RenderTransform>
+                </Image>
             </Canvas>
-    	</StackPanel>
+        </StackPanel>
     </Grid>
 </navigation:Page>
 
