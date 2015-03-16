@@ -16,14 +16,14 @@
 			<StackPanel x:Name="Cabecalho" Margin="0,0,4,0" Height="39"/>
 			<StackPanel x:Name="corpo" Height="427" Margin="10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1004">
 				<Canvas Height="428" Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Left">
-					<TextBlock TextWrapping="Wrap" Text="Acerca" Canvas.Top="233" Width="282" Canvas.Left="34" Height="64" FontSize="64" FontWeight="Bold" Foreground="#FF9C490F" FontFamily="Cooper Std Black"/>
+					<TextBlock TextWrapping="Wrap" Text="Sobre..." Canvas.Top="233" Width="282" Canvas.Left="34" Height="64" FontSize="64" FontWeight="Bold" Foreground="#FF9C490F" FontFamily="Cooper Std Black"/>
 					<Border x:Name="border" BorderBrush="#FF402606" BorderThickness="1" Height="254" Canvas.Left="332" Canvas.Top="28.959" Width="653" Background="#FF360F04" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
 						<Border.RenderTransform>
 							<CompositeTransform SkewY="-0.051" TranslateY="-0.249"/>
 						</Border.RenderTransform>
 					</Border>
-					<Border x:Name="border1" BorderBrush="#FFF3B56A" BorderThickness="1" Height="237" Width="593" Canvas.Left="340" Canvas.Top="37" Background="#FF401B06"/>
-					<MediaElement x:Name="mediaElement" Source="/img/demo.wmv" Height="219" Canvas.Left="349" Canvas.Top="45" Width="573"/>
+					<MediaElement x:Name="mediaElement" Source="/img/demo_HD.wmv" Height="219" Canvas.Left="349" Canvas.Top="45" Width="573" AutoPlay="False" IsMuted="True" Stretch="Fill"/>
+					<Border BorderBrush="#FFFFC182" BorderThickness="1" Height="219" Width="573" Canvas.Left="349" Canvas.Top="45"/>
 					<Canvas x:Name="canvas" Height="100" Width="52" Canvas.Left="931" Canvas.Top="174">
 						<Button x:Name="button" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="36" Background="#FFD68C20" Canvas.Left="10" Canvas.Top="8" Content="&gt;">
 							<i:Interaction.Triggers>
@@ -84,16 +84,14 @@
 					</Image>
 					<Border BorderBrush="#FF402606" BorderThickness="1" Height="108" Canvas.Left="34" Canvas.Top="302" Width="624" Background="#FF360F04"/>
 					<Border BorderBrush="#FFF3B56A" BorderThickness="1" Height="88" Width="605" Canvas.Left="42" Canvas.Top="312" Background="#FF401B06"/>
-					<TextBlock TextWrapping="Wrap" HorizontalAlignment="Right" Width="596" Height="67" RenderTransformOrigin="0.5,0.5" Canvas.Left="51" Canvas.Top="322" FontSize="18.667" Foreground="#FFFFD597">
+					<TextBlock TextWrapping="Wrap" HorizontalAlignment="Right" Width="585" Height="58" RenderTransformOrigin="0.5,0.5" Canvas.Left="51" Canvas.Top="326" FontSize="16" Foreground="#FFFFD597" TextAlignment="Center">
 						<Run Text=" "/>
-						<Run Text="O "/>
+						<Run Text="CookieHellinc. o"/>
+						<Run Text=" "/>
 						<Run Text="Jogo de plataforma com "/>
-						<Run Text="muitos golosos e poucas bolachas"/>
-						<Run Text="."/>
-						<LineBreak/>
-						<Run Text=" "/>
-						<Run Text="Consegues passar de nível"/>
-						<Run Text="?"/>
+						<Run Text="muitos golosos e poucas bolacha"/>
+						<Run Text="s. "/>
+						<Run FontSize="18.667" Text="Consegues passar de nível?"/>
 					</TextBlock>
 					<Image x:Name="image" Height="71.157" Canvas.Top="343.184" Width="72.815" Source="/CookieHell;component/img/ck.png" RenderTransformOrigin="0.5,0.5" Canvas.Left="897.431" UseLayoutRounding="False" d:LayoutRounding="Auto">
 						<Image.RenderTransform>
